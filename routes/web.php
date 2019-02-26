@@ -23,6 +23,4 @@ Route::get('/liste-produits', function () {
     return view('products-list');
 });
 
-Route::get('/fiche-produit', function () {
-    return view('product-details');
-});
+Route::get('fiche-produit/{product}', 'ProductsController@show');

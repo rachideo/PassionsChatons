@@ -81,7 +81,8 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Fiche produit
+                    Fiche produit<br>
+                    {{ $articleName }}
                 </div>
 
                 <div class="links">
