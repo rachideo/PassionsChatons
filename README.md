@@ -3,7 +3,7 @@
 ## DESCRIPTIF FONCTIONNELLE
 |||||||
 |--- |--- |--- |--- |--- |--- |
-|Intégrateur|Contrôleur|URL|Template : View (HTML)|Action|Avancement (:green_heart: ::yellow_heart: :heart:|
+|Intégrateur|Contrôleur|URL|Template : View (HTML)|Action|Avancement (:green_heart: :yellow_heart: :heart:)|
 ||show|/connexion|sign-in.blade.php|Afficher formulaire de connexion|:heart:|
 ||show|/connexion/cree-compte|sign-up.blade.php|Afficher formulaire de creation de compte|:heart:|
 ||create|/connexion/creer-compte|sign-in.blade.php|Créer nouvel utilisateur dans BDD et affiche confirmation|:heart:|
