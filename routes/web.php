@@ -23,4 +23,8 @@ Route::get('/liste-produits', function () {
     return view('products-list');
 });
 
+Route::get('/contact', function () {
+    return view('contact');
+});
+
 Route::get('fiche-produit/{product}', 'ProductsController@show');

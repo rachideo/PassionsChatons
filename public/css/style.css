@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+h1, h2, h3, h4, p, label, ul, li, .btn-primary {
+    font-family: 'Pacifico', cursive;
+}
+
+
+a, a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.black {
+    color: black;
+}
+
+.header {
+    color: white;
+    background-color: lightpink;
+}
+
+.article {
+    background-color: rgb(255, 210, 217);
+    color: white;
+}
+
+.nav-title {
+    color: white;
+    font-size: 2rem;
+}
+
+.prix {
+    font-size: 2rem;
+    margin-bottom: 0;
+    color: lightpink;
+}
+
+.titre {
+    text-align: center;
+    size: 100%;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.bin {
+    background-image: url("images/bin.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0);
+    transition: ease-in-out 0.5s;
+    border: none;
+    width: 60px;
+    height: 60px;
+}
+
+.bin:hover {
+    width: 70px;
+    height: 70px;
+}
+
+h2 {
+    font-size: 3rem;
+    margin-bottom: 0;
+}
+
+.case_prix {
+    background-color: white;
+    height: 90%;
+}
+
+.btn-primary:hover {
+    color: lightpink;
+    background-color: white;
+    border-color: lightpink;
+    border-width: 10px;
+    box-sizing: content-box;
+    transition: all ease 0.5s;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: lightpink;
+    border-color: lightpink;
+    border-width: 10px;
+    box-sizing: content-box;
+}
+
+.btn {
+    font-size: 1.8rem;
+    display: block;
+}
+
+.infos {
+    top: 30%;
+    left: 0;
+    right: 0;
+}
+
+.qte {
+    width: 15%;
+}
+
+.navbar-toggler {
+    background-color: white;
+}
+
+.navbar-toggler-icon {
+    color: grey;
+}
