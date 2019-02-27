@@ -2,7 +2,6 @@
 
 ## DESCRIPTIF FONCTIONNELLE
 
-|||||||
 |--- |--- |--- |--- |--- |--- |
 |Intégrateur|Contrôleur|URL|Template : View (HTML)|Action|Avancement|
 ||show|/connexion|sign-in.blade.php|Afficher formulaire de connexion||
