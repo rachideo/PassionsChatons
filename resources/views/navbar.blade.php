@@ -17,5 +17,10 @@
                 <a class="nav-link" href="/contact">Contact</a>
             </li>
         </ul>
+        <div class="nav-item">
+            <a href="#">
+                <img alt="S'identifier" src="{{ asset('images/icon-myAccount.png') }}" class="float-right w-25">
+            </a>
+        </div>
     </div>
 </nav>
