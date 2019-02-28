@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="fr">
 <head>
-    <meta charset=""utf-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title')</title>
     <link rel="stylesheet" href="/css/app.css" crossorigin="anonymous">
@@ -32,6 +32,11 @@
 </nav>
 
 <div class="container">
+    <div class="titre my-md-4">
+        <h1 class="display-4">
+            @yield('title')
+        </h1>
+    </div>
     @yield('content')
 </div>
 
