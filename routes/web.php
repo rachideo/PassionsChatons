@@ -29,6 +29,6 @@ Route::get('/contact', function () {
 
 Route::get('/mon-compte{user}', function () {
     return view('my-account');
-});
+})->name('account');
 
 Route::get('fiche-produit/{product}', 'ProductsController@show');
