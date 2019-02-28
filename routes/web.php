@@ -27,4 +27,8 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
+Route::get('/mon-compte{user}', function () {
+    return view('my-account');
+});
+
 Route::get('fiche-produit/{product}', 'ProductsController@show');
