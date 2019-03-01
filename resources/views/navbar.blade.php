@@ -8,7 +8,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('product-list') }}">Cat-alogue</a>
+                <a class="nav-link" href="{{ route('product.list') }}">Cat-alogue</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('basket') }}">Mon panier</a>

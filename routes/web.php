@@ -19,7 +19,8 @@ Route::get('/panier', function () {
     return view('basket');
 })->name('basket');
 
-Route::get('/liste-produits', 'ProductsController@list')->name('product-list');
+Route::get('/liste-produits', 'ProductsController@list')
+    ->name('product.list');
 
 Route::get('/contact', function () {
     return view('contact');
@@ -29,4 +30,5 @@ Route::get('/mon-compte{user}', function () {
     return view('my-account');
 })->name('account');
 
-Route::get('fiche-produit/{product}', 'ProductsController@show');
+Route::get('fiche-produit/{product}', 'ProductsController@show')
+    ->name('product.detail');
