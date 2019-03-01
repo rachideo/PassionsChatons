@@ -1,4 +1,6 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css?family=Pacifico);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css?family=Pacifico);@import url(https://fonts.googleapis.com/css?family=Hind+Guntur);@charset "UTF-8";
+
+
 
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
@@ -10661,13 +10663,18 @@ h1,
 h2,
 h3,
 h4,
-p,
 label,
 ul,
 li,
 .btn-primary {
   font-family: "Pacifico", cursive;
 }
+
+p {
+  font-family: 'Hind Guntur', sans-serif;
+  font-size: 16px;
+}
+
 
 a,
 a:hover {
