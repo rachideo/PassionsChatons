@@ -3,9 +3,8 @@
 @section('title', 'Détail produit')
 
 @section('content')
-    <div  class ="myBorder">
-    <img src ="{{ asset ($articleDetails['photo']) }}" class="rounded mx-auto d-block">
-    </div>
+
+    <img src ="{{ asset ($articleDetails['photo']) }}" class="rounded mx-auto d-block" >
     {{ $articleDetails['nom'] }}<br>
     {{ $articleDetails['prix'] }}<br>
 
