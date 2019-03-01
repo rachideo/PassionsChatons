@@ -47,3 +47,12 @@ Route::get('/contact', function () {
 Route::fallback(function () {
     return view('welcome');
 });
+
+/*  ______BACKOFFICE_____  */
+
+Route::get('/admin/liste-produit', 'AdminProductsController@list')
+    ->name('product.detail');
+
+
+//Route::get('/admin/fiche-produit/{product}', 'AdminProductsController@show')
+//    ->name('product.detail');
