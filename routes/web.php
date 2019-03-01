@@ -14,9 +14,7 @@ Route::get('/panier', function () {
 
 /*  _____PRODUITS_____  */
 
-Route::get('/liste-produits', function () {
-    return view('products-list');
-})->name('product-list');
+Route::get('/liste-produits', 'ProductsController@list')->name('product-list');
 
 Route::get('fiche-produit/{product}', 'ProductsController@show');
 
