@@ -10715,6 +10715,9 @@ a:hover {
 img {
   display: block;
   max-width: 100%;
+}
+
+.img-borders {
   border-style: solid;
   border: 20px solid lightpink;
 }
