@@ -36,20 +36,17 @@ class ProductsController extends Controller {
     public function list() {
 
         $chatons = [
-            [
-                'id' => "0",
+            'fiddle' => [
                 'nom' => "Fiddle",
                 'prix' => 399,
                 'photo' => "images/Fiddle.jpg",
             ],
-            [
-                'id' => "1",
+            'mitten' => [
                 'nom' => "Mitten",
                 'prix' => 289,
                 'photo' => "images/Mitten.jpg",
             ],
-            [
-                'id' => "2",
+            'strawberry' => [
                 'nom' => "Strawberry",
                 'prix' => 599,
                 'photo' => "images/Strawberry.jpg",

@@ -14,9 +14,11 @@ Route::get('/panier', function () {
 
 /*  _____PRODUITS_____  */
 
-Route::get('/liste-produits', 'ProductsController@list')->name('product-list');
+Route::get('/liste-produits', 'ProductsController@list')
+    ->name('product.list');
 
-Route::get('fiche-produit/{product}', 'ProductsController@show');
+Route::get('fiche-produit/{product}', 'ProductsController@show')
+    ->name('product.detail');;
 
 /*  _____CONNEXION_____  */
 
@@ -39,6 +41,8 @@ Route::get('/mon-compte{user}', function () {
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
+
+/*  ______FALLBACK_____  */
 
 Route::fallback(function () {
     return view('welcome');
