@@ -29,4 +29,4 @@ Route::get('/mon-compte{user}', function () {
     return view('my-account');
 })->name('account');
 
-Route::get('fiche-produit/chaton', 'ProductsController@show');
+Route::get('fiche-produit/{product}', 'ProductsController@show');

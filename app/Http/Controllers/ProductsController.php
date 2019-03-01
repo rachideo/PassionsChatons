@@ -26,8 +26,9 @@ class ProductsController extends Controller {
             ]
         ];
 
-        return view('product-details')->with('articleDetails', $chatons);
-    }
+
+            return view('product-details')->with('articleDetails', $chatons[$product]);
+     }
 
     public function list() {
 
