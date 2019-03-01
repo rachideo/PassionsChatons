@@ -7,8 +7,8 @@
 ||show|/connexion|sign-in.blade.php|Afficher formulaire de connexion|:heart:|
 ||show|/connexion/cree-compte|sign-up.blade.php|Afficher formulaire de creation de compte|:heart:|
 ||create|/connexion/creer-compte|sign-in.blade.php|Créer nouvel utilisateur dans BDD et affiche confirmation|:heart:|
-||show|/mon-compte/{user}|my-account.blade.php|Afficher dashboard|:heart:|
-||edit|/mon-compte/{user}/edit|edit-account.blade.php|Afficher formulaire modif compte|:heart:|
+|Callista|show|/mon-compte/{user}|my-account.blade.php|Afficher dashboard|:yellow_heart:|
+|Callista|edit|/mon-compte/{user}/edit|edit-account.blade.php|Afficher formulaire modif compte|:yellow_heart:|
 ||update|/mon-compte/{user}|my-account.blade.php|Maj dashboard|:heart:|
 ||show|/panier|basket.balde.php|Afficher le contenu du panier|:heart:|
 ||update|/panier|basket.balde.php|Mette à jour contenu|:heart:|
