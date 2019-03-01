@@ -2,7 +2,7 @@
 
 <html lang="fr">
 
-@include('head')
+@include('headbo')
 
 <body>
 

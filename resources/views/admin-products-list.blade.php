@@ -18,7 +18,7 @@
             <div class="col-md-3 p-4">
                 <div class="text-center custom-control custom-checkbox">
                     <input class="custom-control-input" type="checkbox" name="{{ $key }}" id="{{ $key  }}" value="1">
-                    <label class="custom-control-label" for="{{ $key  }}">Ajouter au panier</label>
+                    <label class="custom-control-label" for="{{ $key  }}">Supprimer produit</label>
                 </div>
             </div>
         </div>
