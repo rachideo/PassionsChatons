@@ -18,7 +18,7 @@ Route::get('/liste-produits', 'ProductsController@list')
     ->name('product.list');
 
 Route::get('fiche-produit/{product}', 'ProductsController@show')
-    ->name('product.detail');;
+    ->name('product.detail');
 
 /*  _____CONNEXION_____  */
 
@@ -32,7 +32,7 @@ Route::get('/connexion/creer-compte', function () {
 
 /*  _____COMPTE_____  */
 
-Route::get('/mon-compte{user}', function () {
+Route::get('/mon-compte/{user}', function () {
     return view('my-account');
 })->name('account');
 
