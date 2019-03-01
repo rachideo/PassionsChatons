@@ -26,9 +26,12 @@ class ProductsController extends Controller {
             ]
         ];
 
-
+        if (isset($chatons[$product])) {
             return view('product-details')->with('articleDetails', $chatons[$product]);
-     }
+        } else {
+            return back();
+        }
+    }
 
     public function list() {
 
@@ -49,7 +52,6 @@ class ProductsController extends Controller {
                 'photo' => "images/Strawberry.jpg",
             ]
         ];
-
         return view('products-list')->with('tableau', $chatons);
         }
 }
