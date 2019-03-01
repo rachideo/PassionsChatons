@@ -1,4 +1,7 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css?family=Pacifico);@import url(https://fonts.googleapis.com/css?family=Hind+Guntur);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+@import url(https://fonts.googleapis.com/css?family=Hind+Guntur);
+@charset "UTF-8";
 
 
 
@@ -10705,6 +10708,7 @@ a:hover {
   font-size: 2rem;
   margin-bottom: 0;
   color: lightpink;
+  font-family: Pacifico;
 }
 
 .titre {
