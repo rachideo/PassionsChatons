@@ -13,7 +13,7 @@
 ||show|/panier|basket.balde.php|Afficher le contenu du panier|:heart:|
 ||update|/panier|basket.balde.php|Mette à jour contenu|:heart:|
 ||destroy|/panier|empty-basket.blade.php|Afficher le message « Panier vide »|:heart:|
-||show|/produits|products.blade.php|Affiche la liste des produits|:heart:|
+|Rachid|show|/liste-produits|products-list.blade.php|Affiche la liste des produits|:green_heart:|
 ||show|/produit{id.produit}|product-details.blade.php|Affiche détail du produit|:heart:|
 ||create|/commande|confirm-order.blade.php|Créer une nouvelle commande et afficher résumé de la commande|:heart:|
 ||show|/mon-compte/{user}/commandes|orders-list.blade.php|Affiche la liste des commandes passées et leurs états|:heart:|
