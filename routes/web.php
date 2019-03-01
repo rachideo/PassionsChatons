@@ -1,34 +1,47 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+/*  _____ACCUEIL_____  */
 
-Route::get('/', function () {
+route::get('/', function () {
     return view('welcome');
 })->name('welcome');
+
+/*  _____PANIER_____  */
 
 Route::get('/panier', function () {
     return view('basket');
 })->name('basket');
 
+/*  _____PRODUITS_____  */
+
 Route::get('/liste-produits', function () {
     return view('products-list');
 })->name('product-list');
 
-Route::get('/contact', function () {
-    return view('contact');
-})->name('contact');
+Route::get('fiche-produit/{product}', 'ProductsController@show');
+
+/*  _____CONNEXION_____  */
+
+Route::get('/connexion', function () {
+    return view('sign-in');
+})->name('sign-in');
+
+Route::get('/connexion/creer-compte', function () {
+    return view('sign-up');
+})->name('sign-up');
+
+/*  _____COMPTE_____  */
 
 Route::get('/mon-compte{user}', function () {
     return view('my-account');
 })->name('account');
 
-Route::get('fiche-produit/{product}', 'ProductsController@show');
+/*  ______CONTACT_____  */
+
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
+
+Route::fallback(function () {
+    return view('welcome');
+});

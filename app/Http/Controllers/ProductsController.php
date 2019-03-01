@@ -25,7 +25,11 @@ class ProductsController extends Controller {
                 'photo' => "images/Strawberry.jpg",
             ]
         ];
-        
-        return view('product-details')->with('articleDetails', $chatons[$product]);
+
+        if (isset($chatons[$product])) {
+            return view('product-details')->with('articleDetails', $chatons[$product]);
+        } else {
+            return back();
+        }
     }
 }
