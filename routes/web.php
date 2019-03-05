@@ -17,6 +17,12 @@ Route::get('/panier', function () {
 Route::get('/liste-produits', 'ProductsController@list')
     ->name('product.list');
 
+Route::get('/liste-byName', 'ProductsController@listByName')
+    ->name('product.list.byName');
+
+Route::get('/liste-byPrice', 'ProductsController@listByPrice')
+    ->name('product.list.byPrice');
+
 Route::get('fiche-produit/{product}', 'ProductsController@show')
     ->name('product.detail');
 

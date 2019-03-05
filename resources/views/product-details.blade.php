@@ -9,9 +9,9 @@
 {{--</pre>--}}
 
 @section('content')
-    <img src ="{{ asset($chaton[0]['image']) }}" class="rounded mx-auto d-block img-borders" > <br>
+    <img src ="{{ asset($chaton->image) }}" class="rounded mx-auto d-block img-borders" > <br>
      <div class="container-fluid bg-3 text-center">
-        <h3>Price : {{ $chaton[0]['price'] / 100 }} €</h3>
+        <h3>Price : {{ $chaton->price / 100 }} €</h3>
         </div><br>
-    <p class="container-fluid bg-3 text-center" >{{ $chaton[0]['description'] }}</p>
+    <p class="container-fluid bg-3 text-center" >{{ $chaton->description }}</p>
 @endsection
