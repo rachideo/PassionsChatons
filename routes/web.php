@@ -51,7 +51,7 @@ Route::fallback(function () {
 /*  ______BACKOFFICE_____  */
 
 Route::get('/admin/liste-produit/', 'AdminProductsController@list')
-    ->name('product.detail');
+    ->name('product.detail.admin');
 
 Route::get('/admin/fiche-produit/{product}', 'AdminProductsController@show')
-    ->name('product.detail');
+    ->name('product.detail.admin');

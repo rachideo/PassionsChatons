@@ -10,13 +10,13 @@
     {{--@endphp--}}
     {{--</pre>--}}
 
-@foreach ($tableau as $chaton)
+@foreach ($chatons as $chaton)
         <div class="row align-items-center article my-3 p-3 justify-content-md-center">
             <div class="col-md-2">
-                <a href="{{-- route('product.detail',[$key]) --}}"><img class="mx-auto mx-md-0 rounded-circle" src="/{{ $chaton->image }}"></a>
+                <a href="{{ route('product.detail',[$chaton->id]) }}"><img class="mx-auto mx-md-0 rounded-circle" src="/{{ $chaton->image }}"></a>
             </div>
             <div class="col-md-3 m-4">
-                <a href="{{-- route('product.detail',[$key]) --}}"><h2 class="text-center">{{ $chaton->name }}</h2></a>
+                <a href="{{ route('product.detail',[$chaton->id]) }}"><h2 class="text-center">{{ $chaton->name }}</h2></a>
             </div>
             <div class="case_prix col-md-2 p-2">
                 <p class="text-center prix">{{ $chaton->price }} €</p>
