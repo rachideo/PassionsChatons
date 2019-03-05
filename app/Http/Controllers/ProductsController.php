@@ -9,21 +9,21 @@ class ProductsController extends Controller {
 
     public function show($product)
     {
-        $chatons = DB::select('select * from products where id = ?', [$product]);
+        $chaton = \App\Product::where('name', $product)->get();
 
-//        if (isset($chatons[$product])) {
+        if (empty($chatons[$product])) {
 
-            return view('product-details', ['chaton' => $chatons]);
+            return view('product-details', ['chaton' => $chaton]);
 
-//        } else {
-//
-//            return back();
-//        }
+        } else {
+
+            return back();
+        }
     }
 
     public function list()
     {
-        $chatons = DB::select('select * from products');
+        $chatons = \App\Product::all();
 
         return view('products-list', ['chatons' => $chatons]);
     }
