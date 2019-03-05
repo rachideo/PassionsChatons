@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductsController extends Controller {
 
@@ -36,25 +37,11 @@ class ProductsController extends Controller {
         }
     }
 
-    public function list() {
+    public function list()
+    {
+        $chatons = DB::select('select * from products');
 
-        $chatons = [
-            'fiddle' => [
-                'nom' => "Fiddle",
-                'prix' => 399,
-                'photo' => "images/Fiddle.jpg",
-            ],
-            'mitten' => [
-                'nom' => "Mitten",
-                'prix' => 289,
-                'photo' => "images/Mitten.jpg",
-            ],
-            'strawberry' => [
-                'nom' => "Strawberry",
-                'prix' => 599,
-                'photo' => "images/Strawberry.jpg",
-            ]
-        ];
-        return view('products-list')->with('tableau', $chatons);
-        }
+        return view('products-list', ['tableau' => $chatons]);
+    }
+
 }
