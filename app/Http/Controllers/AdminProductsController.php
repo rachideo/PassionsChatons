@@ -4,57 +4,40 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class AdminProductsController extends Controller {
+class AdminProductsController extends Controller
+{
+    public function list(Request $request)
+    {
+        $chatons = \App\Product::all();
 
-    public function show($product) {
-
-        $chatons = [
-            'fiddle' => [
-                'nom' => "Fiddle",
-                'prix' => 399,
-                'photo' => "images/Fiddle.jpg",
-                'description' => "Raised in the cozy atmosphere of Irish cottages, Fiddles are the best cuddlers ever who love to curl up next to fireplaces on cold winter nights."
-            ],
-            'mitten' => [
-                'nom' => "Mitten",
-                'prix' => 289,
-                'photo' => "images/Mitten.jpg",
-                'description' => "Mittens are small, fluffy kittens. They enjoy purring, stretching and scratching things. If you buy a mitten prepare to be ignored and to have your furniture destroyed."
-            ],
-            'strawberry' => [
-                'nom' => "Strawberry",
-                'prix' => 599,
-                'photo' => "images/Strawberry.jpg",
-                'description' => "Strawberries suit their name very well . Just like the fruit, Strawberries are lovely and joyful! Always ready to take a nap, they are the cutest pets ever."
-            ]
-        ];
-
-        if (isset($chatons[$product])) {
-            return view('product-details')->with('articleDetails', $chatons[$product]);
-        } else {
-            return back();
-        }
+        return view('admin-products-list', ['tableau' => $chatons], ['request' => $request]);
     }
 
-    public function list() {
+    public function destroy(Request $request)
+    {
+        $selected = $request->input('check');
+        \App\Product::destroy($selected);
 
-        $chatons = [
-            'fiddle' => [
-                'nom' => "Fiddle",
-                'prix' => 399,
-                'photo' => "images/Fiddle.jpg",
-            ],
-            'mitten' => [
-                'nom' => "Mitten",
-                'prix' => 289,
-                'photo' => "images/Mitten.jpg",
-            ],
-            'strawberry' => [
-                'nom' => "Strawberry",
-                'prix' => 599,
-                'photo' => "images/Strawberry.jpg",
-            ]
-        ];
-        return view('admin-products-list')->with('tableau', $chatons);
+        $chatons = \App\Product::all();
+
+        return view('admin-products-list', [
+            'tableau' => $chatons,
+            'request' => $request,
+            'selected' => $selected
+        ]);
+    }
+
+    public function edit($product)
+    {
+        $chaton = \App\Product::where('id', $product)->get();
+
+        if (isset($chaton[0]->id)) {
+
+            return view('admin-product-edit', ['chaton' => $chaton[0]]);
+
+        } else {
+
+            return back();
+        }
     }
 }
