@@ -10,7 +10,12 @@ class AdminProductsController extends Controller
     {
         $chatons = \App\Product::all();
 
-        return view('admin-products-list', ['tableau' => $chatons], ['request' => $request]);
+        return view('admin-products-list',
+            [
+            'tableau' => $chatons,
+            'request' => $request
+            ]
+        );
     }
 
     public function destroy(Request $request)
@@ -20,11 +25,13 @@ class AdminProductsController extends Controller
 
         $chatons = \App\Product::all();
 
-        return view('admin-products-list', [
+        return view('admin-products-list',
+            [
             'tableau' => $chatons,
             'request' => $request,
             'selected' => $selected
-        ]);
+            ]
+        );
     }
 
     public function edit($product)
@@ -32,12 +39,28 @@ class AdminProductsController extends Controller
         $chaton = \App\Product::where('id', $product)->get();
 
         if (isset($chaton[0]->id)) {
-
             return view('admin-product-edit', ['chaton' => $chaton[0]]);
-
         } else {
-
             return back();
         }
+    }
+
+    public function update(Request $request)
+    {
+        $toUpdate = \App\Product::find($request->id);
+        $toUpdate->name = $request->name;
+        $toUpdate->price = $request->price;
+        $toUpdate->description = $request->description;
+        $toUpdate->save();
+
+        $chatons = \App\Product::all();
+
+        return view('admin-products-list',
+            [
+            'tableau' => $chatons,
+            'request' => $request,
+            'toUpdate' => $toUpdate
+            ]
+        );
     }
 }

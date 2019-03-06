@@ -3,7 +3,7 @@
 @section('title', 'Cat-alogue')
 
 @section('content')
-    <form action="/admin/liste-produits" method="post">
+    <form action="{{ route('product.delete.admin') }}" method="post">
         @csrf
         @foreach ($tableau as $chaton)
             <div class="row align-items-center article my-3 p-3 justify-content-md-center">
@@ -40,5 +40,15 @@
             </div>
         </div>
     @endif
+
+    {{--@if($request->isMethod('put'))--}}
+        {{--<div class="row align-items-center">--}}
+            {{--<div class="col">--}}
+                {{--ça marche !--}}
+                {{--@dump($request->id)--}}
+                {{--@dump($toUpdate)--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--@endif--}}
 
 @endsection

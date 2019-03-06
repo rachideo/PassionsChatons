@@ -62,5 +62,8 @@ Route::get('/admin/liste-produits', 'AdminProductsController@list')
 Route::post('/admin/liste-produits', 'AdminProductsController@destroy')
     ->name('product.delete.admin');
 
+Route::put('/admin/liste-produits', 'AdminProductsController@update')
+    ->name('product.update.admin');
+
 Route::get('/admin/edit/{product}', 'AdminProductsController@edit')
     ->name('product.detail.admin');
