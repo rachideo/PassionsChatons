@@ -9,8 +9,8 @@
             Trier par
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="{{ route('product.list.sort.price')}}">prix</a>
-            <a class="dropdown-item" href="{{ route('product.list.sort.name')}}">nom</a>
+            <a class="dropdown-item" href="{{ route('product.list','sort=price')}}">prix</a>
+            <a class="dropdown-item" href="{{ route('product.list','sort=name')}}">nom</a>
         </div>
     </div>
 
