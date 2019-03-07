@@ -6,7 +6,7 @@
 
 <body>
 
-@include('navbar')
+@include('navbarbo')
 
 <div class="container">
     <div class="titre my-md-4">
