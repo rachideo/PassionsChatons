@@ -14,11 +14,19 @@ Route::get('/panier', function () {
 
 /*  _____PRODUITS_____  */
 
+Route::get('fiche-produit/{product}', 'ProductsController@show')
+    ->name('product.detail');
+
 Route::get('/liste-produits', 'ProductsController@list')
     ->name('product.list');
 
-Route::get('fiche-produit/{product}', 'ProductsController@show')
-    ->name('product.detail');
+Route::get('/liste-produits?=nom', 'ProductsSortedController@show')
+    ->name('product.list.sort.name');
+
+Route::get('/liste-produits?=prix', 'ProductsSortedController@list')
+    ->name('product.list.sort.price');
+
+
 
 /*  _____CONNEXION_____  */
 
@@ -46,4 +54,5 @@ Route::get('/contact', function () {
 
 Route::fallback(function () {
     return view('welcome');
-});
+})->name('fallback');
+
