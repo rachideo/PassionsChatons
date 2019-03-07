@@ -54,3 +54,22 @@ Route::fallback(function () {
     return view('welcome');
 })->name('fallback');
 
+
+/*  ______BACKOFFICE_____  */
+
+Route::get('/admin/ajout-produit', 'BackofficeController@create')
+    ->name('add.product');
+
+Route::get('/admin/modifier-produit/{editproduct}', 'BackofficeController@show')
+    ->name('edit.product');
+
+Route::get('/admin/produit-details/{product}', 'BackofficeController@index')
+    ->name('bo.product.details');
+
+Route::get('/admin/liste-produits/', 'BackofficeController@list')
+    ->name('bo.products.list');
+
+Route::get('/admin', function () {
+    return view('backoffice.welcome-bo');
+})->name('welcome.bo');
+
