@@ -8,9 +8,8 @@ route::get('/', function () {
 
 /*  _____PANIER_____  */
 
-Route::get('/panier', function () {
-    return view('basket');
-})->name('basket');
+Route::post('/panier', 'BasketController@index')
+    ->name('basket');
 
 /*  _____PRODUITS_____  */
 

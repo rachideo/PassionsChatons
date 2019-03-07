@@ -1,6 +1,6 @@
 @extends('adminLayout')
 
-@section('title', $chaton->nom)
+@section('title', $chaton->name)
 
 @section('content')
     <form action="{{ route('product.update.admin') }}" method="POST">
@@ -8,6 +8,7 @@
         @csrf
         <div class="row form-group my-4 p-3 justify-content-center">
             <div class="col-md-4">
+                <input class="form-control" type="hidden" name="id" id="id" value="{{ $chaton->id }}">
                 <img src ="{{ asset($chaton->image) }}" class="rounded mx-auto d-block img-borders my-3" >
             </div>
             <div class="col-md-8">

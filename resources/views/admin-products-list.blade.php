@@ -44,7 +44,7 @@
         @if($request->isMethod('put'))
             <div class="row align-items-center">
                 <div class="col">
-                    <p>Le chaton n°{{ $toUpdate->id }} a bien été modifié.</p>
+                    <p>Le chaton n°{{ $request->id }} a bien été modifié.</p>
                 </div class="text-center">
             </div>
         @endif

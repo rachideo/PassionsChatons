@@ -71,11 +71,13 @@ class AdminProductsController extends Controller
 
     public function update(Request $request)
     {
-        $toUpdate = \App\Product::find($request->id);
-        $toUpdate->name = $request->name;
-        $toUpdate->price = $request->price;
-        $toUpdate->description = $request->description;
-        $toUpdate->save();
+        \App\Product::where('id', $request->id)
+            ->update(
+                [
+                    'name' => $request->name,
+                    'price' =>  $request->price,
+                    'description' =>  $request->description,
+                ]);
 
         $chatons = \App\Product::all();
 
@@ -83,7 +85,6 @@ class AdminProductsController extends Controller
             [
             'tableau' => $chatons,
             'request' => $request,
-            'toUpdate' => $toUpdate
             ]
         );
     }
