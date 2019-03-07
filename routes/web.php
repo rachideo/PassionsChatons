@@ -59,7 +59,13 @@ Route::fallback(function () {
 Route::get('/admin/liste-produits', 'AdminProductsController@list')
     ->name('product.list.admin');
 
-Route::post('/admin/liste-produits', 'AdminProductsController@destroy')
+Route::get('/admin/liste-produits/create', 'AdminProductsController@create')
+    ->name('product.create.admin');
+
+Route::post('/admin/liste-produits', 'AdminProductsController@store')
+    ->name('product.store.admin');
+
+Route::delete('/admin/liste-produits', 'AdminProductsController@destroy')
     ->name('product.delete.admin');
 
 Route::put('/admin/liste-produits', 'AdminProductsController@update')

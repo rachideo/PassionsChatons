@@ -3,7 +3,11 @@
 @section('title', 'Cat-alogue')
 
 @section('content')
+    <a href="{{ route('product.create.admin') }}">
+        <div class="btn btn-primary">Nouvel article</div>
+    </a>
     <form action="{{ route('product.delete.admin') }}" method="post">
+        @method('DELETE')
         @csrf
         @foreach ($tableau as $chaton)
             <div class="row align-items-center article my-3 p-3 justify-content-md-center">
@@ -24,31 +28,28 @@
                 </div>
             </div>
         @endforeach
-        <input type="submit" value="Delete" class="mx-auto my-4 btn btn-primary">
-    </form>
 
-    {{-- Message : prise en compte de la suppression --}}
-
-    @if($request->isMethod('post'))
-        <div class="row align-items-center">
-            <div class="col">
-                <p class="text-center">{{ count($selected) }}
-                    @if(count($selected) > 1) chatons ont correctement été supprimés.
-                    @else chaton a correctement été supprimé.
-                    @endif
-                </p>
+        @if($request->isMethod('DELETE'))
+            <div class="row align-items-center">
+                <div class="col">
+                    <p class="text-center">{{ count($selected) }}
+                        @if(count($selected) > 1) chatons ont correctement été supprimés.
+                        @else chaton a correctement été supprimé.
+                        @endif
+                    </p>
+                </div>
             </div>
-        </div>
-    @endif
+        @endif
 
-    {{--@if($request->isMethod('put'))--}}
-        {{--<div class="row align-items-center">--}}
-            {{--<div class="col">--}}
-                {{--ça marche !--}}
-                {{--@dump($request->id)--}}
-                {{--@dump($toUpdate)--}}
-            {{--</div>--}}
-        {{--</div>--}}
-    {{--@endif--}}
+        @if($request->isMethod('put'))
+            <div class="row align-items-center">
+                <div class="col">
+                    <p>Le chaton n°{{ $toUpdate->id }} a bien été modifié.</p>
+                </div class="text-center">
+            </div>
+        @endif
+
+        <input type="submit" value="Supprimer la sélection" class="mx-auto my-4 btn btn-primary">
+    </form>
 
 @endsection

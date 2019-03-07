@@ -4,7 +4,6 @@
 
 @section('content')
 
-    <div class="container-fluid bg-3 text-center">
         <img src ="{{ asset($chaton->image) }}" class="rounded mx-auto d-block img-borders my-3" >
         <form action="{{ route('product.update.admin') }}" method="POST">
             @method('PUT')
@@ -21,6 +20,7 @@
                     {{--<label class="d-inline-block mx-1" for="price">Nouveau prix (en cents):</label>--}}
                     <input class="d-inline-block form-control" type="text" name="price" id="price" value="{{ $chaton->price }}">
                 </div>
+            </div>
             <div class="row form-group my-4 p-3 justify-content-center">
                 <div class="col">
                     <h3>Description</h3>
@@ -33,6 +33,5 @@
             </div>
             <input type="submit" value="Enregistrer les modifications" class="mx-auto my-4 btn btn-primary">
         </form>
-    </div>
 
 @endsection

@@ -18,6 +18,30 @@ class AdminProductsController extends Controller
         );
     }
 
+    public function create()
+    {
+        return view('admin-product-create');
+    }
+
+    public function store(Request $request)
+    {
+        $newProduct = new \App\Product;
+        $newProduct->name = $request->name;
+        $newProduct->price = $request->price;
+        $newProduct->description = $request->description;
+        $newProduct->image = $request->image;
+        $newProduct->save();
+
+        $chatons = \App\Product::all();
+
+        return view('admin-products-list',
+            [
+                'tableau' => $chatons,
+                'request' => $request,
+            ]
+        );
+    }
+
     public function destroy(Request $request)
     {
         $selected = $request->input('check');
