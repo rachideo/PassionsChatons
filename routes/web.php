@@ -56,9 +56,13 @@ Route::fallback(function () {
 
 
 /*  ______BACKOFFICE_____  */
+//
+Route::get('/admin/ajout-produit', function () {
+    return view ('backoffice.add-product-bo');
+})->name('add.product');
 
-Route::get('/admin/ajout-produit', 'BackofficeController@create')
-    ->name('add.product');
+Route::post('/admin', 'BackOfficeController@store')
+    ->name('store.product');
 
 Route::get('/admin/modifier-produit/{editproduct}', 'BackofficeController@show')
     ->name('edit.product');
