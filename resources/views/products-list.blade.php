@@ -10,11 +10,10 @@
     {{--@endphp--}}
     {{--</pre>--}}
 
-<form action="{{ route('basket') }}" method="POST">
+<form action="{{ route('basket.store') }}" method="POST">
     @csrf
 
     @foreach ($chatons as $chaton)
-
         <div class="row align-items-center article my-3 p-3 justify-content-md-center">
             <div class="col-md-2">
                 <a href=""><img class="mx-auto mx-md-0 rounded-circle" src="/{{ $chaton->image }}"></a>
@@ -27,7 +26,8 @@
             </div>
             <div class="col-md-3 p-4">
                 <div class="text-center custom-control custom-checkbox">
-                    <input class="custom-control-input" type="checkbox" name="toAdd[]" id="{{ $chaton->id }}" value="{{ $chaton->id }}">
+                    <input class="custom-control-input" type="checkbox" name="toAdd[]" id="{{ $chaton->id }}" value="{{ $chaton->id }}"
+                           @if (isset(session('basket')[$chaton->id])) checked @endif >
                     <label class="custom-control-label" for="{{ $chaton->id }}">Ajouter au panier</label>
                 </div>
             </div>

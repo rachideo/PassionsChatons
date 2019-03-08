@@ -8,8 +8,17 @@ route::get('/', function () {
 
 /*  _____PANIER_____  */
 
-Route::post('/panier', 'BasketController@index')
-    ->name('basket');
+Route::get('/panier', 'BasketController@index')
+    ->name('basket.index');
+
+Route::post('/panier', 'BasketController@store')
+    ->name('basket.store');
+
+Route::put('/panier', 'BasketController@update')
+    ->name('basket.update');
+
+Route::delete('/panier', 'BasketController@destroy')
+    ->name('basket.destroy');
 
 /*  _____PRODUITS_____  */
 

@@ -1,4 +1,5 @@
-﻿# Projet "Laravel 101" : Bastien, Callista, Rachid
+﻿
+# Projet "Laravel 101" : Bastien, Callista, Rachid
 
 ## DESCRIPTIF FONCTIONNEL
 
@@ -11,9 +12,10 @@
 |Callista|show|/mon-compte/{user}||my-account.blade.php|Afficher dashboard|:yellow_heart:|
 |Callista|edit|/mon-compte/{user}/edit||edit-account.blade.php|Afficher formulaire modif compte|:yellow_heart:|
 ||update|/mon-compte/{user}||my-account.blade.php|Maj dashboard|:heart:|
-||show|/panier||basket.balde.php|Afficher le contenu du panier|:heart:|
-||update|/panier||basket.balde.php|Mette à jour contenu|:heart:|
-||destroy|/panier||empty-basket.blade.php|Afficher le message « Panier vide »|:heart:|
+||show|/panier|get|basket.balde.php|Afficher le contenu du panier|:heart:|
+||store|/panier|post|basket.balde.php|Afficher le contenu du panier|:heart:|
+||update|/panier|put|basket.balde.php|Mette à jour contenu|:heart:|
+||destroy|/panier|delete|empty-basket.blade.php|Afficher le message « Panier vide »|:heart:|
 |Bastien, Rachid|show|/liste-produits||products-list.blade.php|Affiche la liste des produits|:green_heart:|
 |Callista|show|/produit{id.produit}||product-details.blade.php|Affiche détail du produit|:green_heart:|
 ||create|/commande||confirm-order.blade.php|Créer une nouvelle commande et afficher résumé de la commande|:heart:|
