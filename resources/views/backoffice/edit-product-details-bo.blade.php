@@ -19,7 +19,6 @@
         @method('PUT')
         <h1>Produit : {{$articleDetails->name}}</h1>
         <div class="form-group">
-            <label for="name"><b>Nouveau nom :</b></label>
             <input type="text" class="form-control" name="new_name" value="{{$articleDetails->name}}"/>
         </div>
         <div class="form-group">
@@ -39,8 +38,15 @@
         </div>
         <button type="submit" class="btn btn-primary">MODIFIER</button>
     </form>
-
-
+    <br>
+    <form method="POST" action="{{route('update.product')}}">
+        @csrf
+        @method('DELETE')
+        <div class="form-group">
+            <input type="hidden" class="form-control" name="id" value="{{$articleDetails->id}}"/>
+        </div>
+        <button type="submit" class="btn btn-danger">SUPPRIMER</button>
+    </form>
 @endsection
 
 

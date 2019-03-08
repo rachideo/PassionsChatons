@@ -2,16 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use Validator;
 use Illuminate\Http\Request;
-
 use App\Product;
+
+
 
 class BackofficeController extends Controller {
 
     /**
      * @param Request $request
+     * @param  \Illuminate\Validation\Validator  $validator
      * @method bool validate(array $rules, ...$params) Validate the given request with the given rules.
      * @method array validated() Get the validated data from the request.
+     * @return array
      * @return mixed
      */
 
@@ -32,6 +36,8 @@ class BackofficeController extends Controller {
         $product->description = $request->get('new_description');
 //        dd($product);
         $product->save();
+
+
 
         return redirect('admin/liste-produits')->with('status', 'Le produit a bien été ajouté');
     }
@@ -70,6 +76,16 @@ class BackofficeController extends Controller {
         $product->save();
 
         return redirect('admin/liste-produits')->with('status', 'Le produit a bien été modifié');
+    }
+
+    public function destroy(Request $request) // SUPPRESION DE PRODUIT
+    {
+
+        $product = \App\Product::find($request->get('id'));
+
+        $product->delete();
+
+        return redirect('admin/liste-produits')->with('status', 'Le produit a bien été supprimé');
     }
 
 

@@ -70,6 +70,9 @@ Route::get('/admin/modifier-produit/{editproduct}', 'BackofficeController@show')
 Route::put('/admin/liste-produits/', 'BackofficeController@update')
     ->name('update.product');
 
+Route::delete('/admin/liste-produits/', 'BackofficeController@destroy')
+    ->name('delete.product');
+
 Route::get('/admin/produit-details/{product}', 'BackofficeController@index')
     ->name('bo.product.details');
 
