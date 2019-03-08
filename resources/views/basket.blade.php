@@ -32,7 +32,8 @@
     </div>
 
     <!-- Formulaire de validation de commande -->
-    <form method="post" action="">
+    <form method="get" action="{{ route('order') }}">
+        @csrf
         <input class="d-block form-control-sm mx-auto" type="text" name="customer" id="customer" placeholder="Votre Nom" value="">
         <input type="submit" value="Valider la commande" class="mx-auto my-2 btn btn-primary">
     </form>

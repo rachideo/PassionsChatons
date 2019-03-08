@@ -34,6 +34,11 @@ Route::get('/liste-byPrice', 'ProductsController@listByPrice')
 Route::get('fiche-produit/{product}', 'ProductsController@show')
     ->name('product.detail');
 
+/*  _____ORDER_____  */
+
+Route::get('/order', 'OrderController@show')
+    ->name('order');
+
 /*  _____CONNEXION_____  */
 
 Route::get('/connexion', function () {
