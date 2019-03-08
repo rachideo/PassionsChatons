@@ -61,11 +61,14 @@ Route::get('/admin/ajout-produit', function () {
     return view ('backoffice.add-product-bo');
 })->name('add.product');
 
-Route::post('/admin', 'BackOfficeController@store')
+Route::post('/admin/liste-produits/', 'BackOfficeController@store')
     ->name('store.product');
 
 Route::get('/admin/modifier-produit/{editproduct}', 'BackofficeController@show')
     ->name('edit.product');
+
+Route::put('/admin/liste-produits/', 'BackofficeController@update')
+    ->name('update.product');
 
 Route::get('/admin/produit-details/{product}', 'BackofficeController@index')
     ->name('bo.product.details');

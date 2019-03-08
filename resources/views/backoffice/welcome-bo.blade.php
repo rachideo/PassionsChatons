@@ -4,12 +4,6 @@
 
 @section('content')
 
-@if (session('status'))
-    <div class="alert alert-success">
-        {{ session('status') }}
-    </div>
-@endif
-
     <div class="row align-items-center">
         <div class="col">
             <img class="" src="{{ asset ('images/welcomeChat.png') }}">
