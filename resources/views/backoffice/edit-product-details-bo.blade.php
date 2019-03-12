@@ -36,9 +36,9 @@
             <label for="description"><b>Nouvelle description :</b></label>
             <input type="text" class="form-control" name="new_description" value="{{$articleDetails->description}}"/>
         </div>
-        <button type="submit" class="btn btn-primary">MODIFIER</button>
+        <button type="submit" class="btn btn-secondary">MODIFIER</button>
     </form>
-    <br>
+
     <form method="POST" action="{{route('update.product')}}">
         @csrf
         @method('DELETE')
