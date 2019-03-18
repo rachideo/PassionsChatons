@@ -53,6 +53,7 @@ class BackofficeController extends Controller {
     {
         $chaton = \App\Product::where('name',$product)->first();
 
+
         if (isset($chaton)) {
             return view('backoffice.edit-product-details-bo')->with('articleDetails', $chaton);
         } else {
@@ -82,10 +83,28 @@ class BackofficeController extends Controller {
 
     public function destroy(Request $request) // SUPPRESSION DE PRODUIT
     {
-        $product = \App\Product::find($request->get('id'));
-        $product->delete();
 
-        return redirect('admin/liste-produits')->with('status', 'Le produit a bien été supprimé');
+        if (isset($request->check)) {
+
+            $selected = $request->input('check');
+            \App\Product::destroy($selected);
+
+            if (count($selected) == 1) {
+                $message = "Le produit a bien été supprimé.";
+            } else {
+                $message = "Les produits ont bien été supprimés.";
+            }
+
+            return redirect()->route('bo.products.list')->with('status', $message);
+
+        } else {
+
+            $product = $request->input('id');
+            \App\Product::destroy($product);
+
+            return redirect()->route('bo.products.list')->with('status', 'Le produit a bien été supprimé');
+        }
+
     }
 
 

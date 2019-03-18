@@ -66,11 +66,11 @@ Route::get('/contact', function () {
 })->name('contact');
 
 
-/*  ______FALLBACK_____  */
-
-Route::fallback(function () {
-    return view('welcome');
-})->name('fallback');
+///*  ______FALLBACK_____  */
+//
+//Route::fallback(function () {
+//    return view('welcome');
+//})->name('fallback');
 
 
 /*  ______BACKOFFICE_____  */
@@ -81,9 +81,6 @@ Route::get('/admin/ajout-produit', function () {
 
 Route::post('/admin/liste-produits/', 'BackOfficeController@store')
     ->name('store.product');
-
-Route::get('/admin/modifier-produit/{editproduct}', 'BackofficeController@show')
-    ->name('edit.product');
 
 Route::put('/admin/liste-produits/', 'BackofficeController@update')
     ->name('update.product');
