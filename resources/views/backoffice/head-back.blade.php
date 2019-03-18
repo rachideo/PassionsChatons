@@ -4,5 +4,4 @@
     <title>@yield('title') - BACKOFFICE </title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/style_backoffice.css') }}">
-
 </head>
