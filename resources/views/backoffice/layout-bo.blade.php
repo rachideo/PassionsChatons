@@ -2,11 +2,11 @@
 
 <html lang="fr">
 
-@include('headbo')
+@include('backoffice.head-back')
 
 <body>
 
-@include('navbarbo')
+@include('backoffice.navbar-bo')
 
 <div class="container">
     <div class="titre my-md-4">

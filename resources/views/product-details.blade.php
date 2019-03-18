@@ -1,17 +1,13 @@
 @extends('layout')
 
-@section('title', $chaton[0]['name'])
-
-{{--<pre>--}}
-{{--@php--}}
-    {{--var_dump($chaton);--}}
-{{--@endphp--}}
-{{--</pre>--}}
+@section('title', $articleDetails->name)
 
 @section('content')
-    <img src ="{{ asset($chaton->image) }}" class="rounded mx-auto d-block img-borders" > <br>
-     <div class="container-fluid bg-3 text-center">
-        <h3>Price : {{ $chaton->price / 100 }} €</h3>
-        </div><br>
-    <p class="container-fluid bg-3 text-center" >{{ $chaton->description }}</p>
+
+    <img src ="{{ asset ($articleDetails->photo) }}" alt="" class="rounded mx-auto d-block img-borders" > <br>
+    <div class="container-fluid bg-3 text-center">
+        <h3>Price : {{ $articleDetails->prix / 100 }} €</h3>
+    </div><br>
+    <p class="container-fluid bg-3 text-center" >{{ $articleDetails->description }}</p>
+
 @endsection
