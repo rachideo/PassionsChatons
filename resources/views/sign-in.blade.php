@@ -7,8 +7,9 @@
         <div class="row">
             <div class="col">
                 <h2> Identifiez vous</h2> <br>
-                    <form>
-                        <div class="form-group ">
+
+                    <form method="GET" action="{{route('account')}}">
+                        <div class="form-group">
                             <label for="InputEmail"> <h1>Adresse email</h1></label>
                             <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Votre email">
                         </div>
