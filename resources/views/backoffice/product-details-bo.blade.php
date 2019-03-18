@@ -3,6 +3,7 @@
 @section('title', $articleDetails->name)
 
 @section('content')
+<<<<<<< HEAD
 
     @if ($errors->any())
         <div class="alert alert-danger">

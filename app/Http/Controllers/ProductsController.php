@@ -3,17 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductsController extends Controller {
 
     public function show($product) {
 
         $chaton = \App\Product::where('name',$product)->first();
+
         if (isset($chaton)) {
             return view('product-details')->with('articleDetails', $chaton);
         } else {
             return back();
         }
+
     }
 
     public function index(Request $request)
@@ -25,7 +28,7 @@ class ProductsController extends Controller {
             $sorted = $chatons->sortBy('name');
             $sorted->values()->all();
         } elseif ($data == 'price') {
-            $sorted = $chatons->sortBy('prix');
+            $sorted = $chatons->sortBy('price');
             $sorted->values()->all();
         } else {
             $sorted = $chatons;

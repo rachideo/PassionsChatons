@@ -8,13 +8,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('product.list') }}">Cat-alogue</a>
+                <a class="nav-link" href="{{ route('product.list.admin') }}">Cat-alogue</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('basket.index') }}">Mon panier</a>
+                <a class="nav-link" href="{{ route('product.create.admin') }}">Nouveau produit</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('contact') }}">Contact</a>
+                <a class="nav-link" href="{{ route('welcome') }}">Retour au site</a>
             </li>
         </ul>
         <div class="nav-item">

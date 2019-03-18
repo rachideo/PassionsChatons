@@ -4,6 +4,9 @@
 
 @section('content')
 
+<form action="{{ route('basket.store') }}" method="POST">
+    @csrf
+
     <div class="dropdown">
         <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Trier par
@@ -27,11 +30,16 @@
             </div>
             <div class="col-md-3 p-4">
                 <div class="text-center custom-control custom-checkbox">
-                    <input class="custom-control-input" type="checkbox" name="{{ $key }}" id="{{ $key  }}" value="1">
-                    <label class="custom-control-label" for="{{ $key  }}">Ajouter au panier</label>
+                    <input class="custom-control-input" type="checkbox" name="toAdd[]" id="{{ $chaton->id }}" value="{{ $chaton->id }}"
+                           @if (isset(session('basket')[$chaton->id])) checked @endif >
+                    <label class="custom-control-label" for="{{ $chaton->id }}">Ajouter au panier</label>
                 </div>
             </div>
         </div>
+
     @endforeach
+
+    <input type="submit" value="Ajouter au panier" class="mx-auto my-4 btn btn-primary">
+</form>
 
 @endsection

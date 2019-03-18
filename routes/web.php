@@ -9,12 +9,26 @@ route::get('/', function () {
 
 /*  _____PANIER_____  */
 
-Route::get('/panier', function () {
-    return view('basket');
-})->name('basket');
+Route::get('/panier', 'BasketController@index')
+    ->name('basket.index');
+
+Route::post('/panier', 'BasketController@store')
+    ->name('basket.store');
+
+Route::put('/panier', 'BasketController@update')
+    ->name('basket.update');
+
+Route::delete('/panier', 'BasketController@destroy')
+    ->name('basket.destroy');
 
 
 /*  _____PRODUITS_____  */
+
+Route::get('/liste-byName', 'ProductsController@listByName')
+    ->name('product.list.byName');
+
+Route::get('/liste-byPrice', 'ProductsController@listByPrice')
+    ->name('product.list.byPrice');
 
 Route::get('fiche-produit/{product}', 'ProductsController@show')
     ->name('product.detail');
@@ -22,6 +36,10 @@ Route::get('fiche-produit/{product}', 'ProductsController@show')
 Route::get('/liste-produits', 'ProductsController@index')
     ->name('product.list');
 
+/*  _____ORDER_____  */
+
+Route::get('/order', 'OrderController@show')
+    ->name('order');
 
 /*  _____CONNEXION_____  */
 
@@ -56,7 +74,7 @@ Route::fallback(function () {
 
 
 /*  ______BACKOFFICE_____  */
-//
+
 Route::get('/admin/ajout-produit', function () {
     return view ('backoffice.add-product-bo');
 })->name('add.product');
@@ -82,7 +100,3 @@ Route::get('/admin/liste-produits/', 'BackofficeController@list')
 Route::get('/admin', function () {
     return view('backoffice.welcome-bo');
 })->name('welcome.bo');
-
-
-
-

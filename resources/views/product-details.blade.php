@@ -11,6 +11,3 @@
     <p class="container-fluid bg-3 text-center" >{{ $articleDetails->description }}</p>
 
 @endsection
-
-
-
