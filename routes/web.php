@@ -54,9 +54,13 @@ Route::get('/connexion/creer-compte', function () {
 
 /*  _____COMPTE_____  */
 
-Route::get('/mon-compte/{user}', function () {
+Route::get('/mon-compte', function () {
     return view('my-account');
 })->name('account');
+
+Route::get('/identification', function () {
+    return view('sign-in');
+})->name('sign-in');
 
 
 /*  ______CONTACT_____  */
@@ -66,11 +70,11 @@ Route::get('/contact', function () {
 })->name('contact');
 
 
-/*  ______FALLBACK_____  */
-
-Route::fallback(function () {
-    return view('welcome');
-})->name('fallback');
+///*  ______FALLBACK_____  */
+//
+//Route::fallback(function () {
+//    return view('welcome');
+//})->name('fallback');
 
 
 /*  ______BACKOFFICE_____  */
@@ -81,9 +85,6 @@ Route::get('/admin/ajout-produit', function () {
 
 Route::post('/admin/liste-produits/', 'BackOfficeController@store')
     ->name('store.product');
-
-Route::get('/admin/modifier-produit/{editproduct}', 'BackofficeController@show')
-    ->name('edit.product');
 
 Route::put('/admin/liste-produits/', 'BackofficeController@update')
     ->name('update.product');
