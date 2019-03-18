@@ -40,8 +40,8 @@ class BackofficeController extends Controller {
 
         $product = new Product;
         $product->name = $request->get('new_name');
-        $product->prix = $request->get('new_prix');
-        $product->photo = $request->get('new_photo');
+        $product->price = $request->get('new_prix');
+        $product->image = $request->get('new_photo');
         $product->description = $request->get('new_description');
         $product->save();
 
@@ -72,8 +72,8 @@ class BackofficeController extends Controller {
 
         $product = \App\Product::find($request->get('id'));
         $product->name = $request->get('new_name');
-        $product->prix = $request->get('new_prix');
-        $product->photo = $request->get('new_photo');
+        $product->price = $request->get('new_prix');
+        $product->image = $request->get('new_photo');
         $product->description = $request->get('new_description');
         $product->save();
 
