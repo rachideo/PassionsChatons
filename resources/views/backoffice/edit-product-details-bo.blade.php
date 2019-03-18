@@ -39,14 +39,7 @@
         <button type="submit" class="btn btn-secondary">MODIFIER</button>
     </form>
 
-    <form method="POST" action="{{route('update.product')}}">
-        @csrf
-        @method('DELETE')
-        <div class="form-group">
-            <input type="hidden" class="form-control" name="id" value="{{$articleDetails->id}}"/>
-        </div>
-        <button type="submit" class="btn btn-danger">SUPPRIMER</button>
-    </form>
+
 @endsection
 
 
