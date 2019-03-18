@@ -8,10 +8,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('contact') }}">Contact</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('product.list') }}">Cat-alogue</a>
+                <a class="nav-link" href="{{ route('welcome') }}">Retour FrontOffice</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('add.product') }}">Ajout Produit</a>

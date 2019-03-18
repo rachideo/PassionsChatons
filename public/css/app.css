@@ -10667,7 +10667,7 @@ h2,
 h3,
 h4,
 label,
-ul,
+ul,rounded mx-auto d-block img-borders
 li,
 .btn-primary {
   font-family: "Pacifico", cursive;

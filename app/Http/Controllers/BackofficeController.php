@@ -63,12 +63,12 @@ class BackofficeController extends Controller {
 
     public function update(Request $request) // MODIFICATION DE PRODUIT
     {
-        $request->validate([
-            'new_name'=> 'required',
-            'new_prix'=> 'required',
-            'new_photo'=> 'required',
-            'new_description'=> 'required'
-        ]);
+//        $request->validate([
+//            'new_name'=> 'required',
+//            'new_prix'=> 'required',
+//            'new_photo'=> 'required',
+//            'new_description'=> 'required'
+//        ]);
 
         $product = \App\Product::find($request->get('id'));
         $product->name = $request->get('new_name');
