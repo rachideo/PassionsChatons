@@ -1,4 +1,4 @@
-@extends('adminlayout')
+@extends('adminLayout')
 
 @section('title', 'Créer un nouvel article')
 
