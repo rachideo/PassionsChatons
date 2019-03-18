@@ -18,7 +18,7 @@
             </li>
         </ul>
         <div class="nav-item">
-            <a href="#">
+            <a href="">
                 <img alt="S'identifier" src="{{ asset('images/icon-myAccount.png') }}" class="float-right w-25">
             </a>
         </div>
