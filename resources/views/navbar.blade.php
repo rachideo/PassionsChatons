@@ -18,9 +18,10 @@
             </li>
         </ul>
         <div class="nav-item">
-            <a href="">
+            <a href="{{ route('sign-in') }}">
                 <img alt="S'identifier" src="{{ asset('images/icon-myAccount.png') }}" class="float-right w-25">
             </a>
         </div>
     </div>
 </nav>
+

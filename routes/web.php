@@ -54,9 +54,13 @@ Route::get('/connexion/creer-compte', function () {
 
 /*  _____COMPTE_____  */
 
-Route::get('/mon-compte/{user}', function () {
-    return view('my-account');
-})->name('account');
+//Route::get('/mon-compte', function () {
+//    return view('my-account');
+//})->name('account');
+
+Route::get('/identification', function () {
+    return view('sign-in');
+})->name('sign-in');
 
 
 /*  ______CONTACT_____  */
