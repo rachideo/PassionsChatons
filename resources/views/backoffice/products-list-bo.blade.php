@@ -41,7 +41,6 @@
                 </div>
             </div>
         @endforeach
-
         <input type="submit" value="Supprimer la sélection" class="mx-auto my-4 btn btn-primary">
     </form>
 
