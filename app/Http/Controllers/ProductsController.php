@@ -3,58 +3,38 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductsController extends Controller {
 
     public function show($product) {
 
-        $chatons = [
-            'fiddle' => [
-                'nom' => "Fiddle",
-                'prix' => 399,
-                'photo' => "images/Fiddle.jpg",
-                'description' => "Raised in the cozy atmosphere of Irish cottages, Fiddles are the best cuddlers ever who love to curl up next to fireplaces on cold winter nights."
-            ],
-            'mitten' => [
-                'nom' => "Mitten",
-                'prix' => 289,
-                'photo' => "images/Mitten.jpg",
-                'description' => "Mittens are small, fluffy kittens. They enjoy purring, stretching and scratching things. If you buy a mitten prepare to be ignored and to have your furniture destroyed."
-            ],
-            'strawberry' => [
-                'nom' => "Strawberry",
-                'prix' => 599,
-                'photo' => "images/Strawberry.jpg",
-                'description' => "Strawberries suit their name very well . Just like the fruit, Strawberries are lovely and joyful! Always ready to take a nap, they are the cutest pets ever."
-            ]
-        ];
+        $chaton = \App\Product::where('name',$product)->first();
 
-        if (isset($chatons[$product])) {
-            return view('product-details')->with('articleDetails', $chatons[$product]);
+        if (isset($chaton)) {
+            return view('product-details')->with('articleDetails', $chaton);
         } else {
             return back();
         }
+
     }
 
-    public function list() {
+    public function index(Request $request)
+    {
 
-        $chatons = [
-            'fiddle' => [
-                'nom' => "Fiddle",
-                'prix' => 399,
-                'photo' => "images/Fiddle.jpg",
-            ],
-            'mitten' => [
-                'nom' => "Mitten",
-                'prix' => 289,
-                'photo' => "images/Mitten.jpg",
-            ],
-            'strawberry' => [
-                'nom' => "Strawberry",
-                'prix' => 599,
-                'photo' => "images/Strawberry.jpg",
-            ]
-        ];
-        return view('products-list')->with('tableau', $chatons);
+        $data = $request->input('sort');
+        $chatons = \App\Product::all();
+        if ($data == 'name') {
+            $sorted = $chatons->sortBy('name');
+            $sorted->values()->all();
+        } elseif ($data == 'price') {
+            $sorted = $chatons->sortBy('price');
+            $sorted->values()->all();
+        } else {
+            $sorted = $chatons;
         }
+
+        return view('products-list')->with('tableau', $sorted);
+    }
+
 }

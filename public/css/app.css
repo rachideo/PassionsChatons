@@ -109,11 +109,11 @@ abbr[title],
 abbr[data-original-title] {
   text-decoration: underline;
   -webkit-text-decoration: underline dotted;
-          text-decoration: underline dotted;
+  text-decoration: underline dotted;
   cursor: help;
   border-bottom: 0;
   -webkit-text-decoration-skip-ink: none;
-          text-decoration-skip-ink: none;
+  text-decoration-skip-ink: none;
 }
 
 address {
@@ -2521,9 +2521,9 @@ textarea.form-control.is-invalid {
   text-align: center;
   vertical-align: middle;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   background-color: transparent;
   border: 1px solid transparent;
   padding: 0.375rem 0.75rem;
@@ -3949,7 +3949,7 @@ input[type=button].btn-block {
 .custom-switch .custom-control-input:checked ~ .custom-control-label::after {
   background-color: #fff;
   -webkit-transform: translateX(0.75rem);
-          transform: translateX(0.75rem);
+  transform: translateX(0.75rem);
 }
 
 .custom-switch .custom-control-input:disabled:checked ~ .custom-control-label::before {
@@ -3971,8 +3971,8 @@ input[type=button].btn-block {
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .custom-select:focus {
@@ -4091,8 +4091,8 @@ input[type=button].btn-block {
   padding: 0;
   background-color: transparent;
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .custom-range:focus {
@@ -4124,7 +4124,7 @@ input[type=button].btn-block {
   border-radius: 1rem;
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   -webkit-appearance: none;
-          appearance: none;
+  appearance: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -4155,7 +4155,7 @@ input[type=button].btn-block {
   border-radius: 1rem;
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   -moz-appearance: none;
-       appearance: none;
+  appearance: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -4945,9 +4945,9 @@ input[type=button].btn-block {
 @media (min-width: 576px) {
   .card-columns {
     -webkit-column-count: 3;
-            column-count: 3;
+    column-count: 3;
     -webkit-column-gap: 1.25rem;
-            column-gap: 1.25rem;
+    column-gap: 1.25rem;
     orphans: 1;
     widows: 1;
   }
@@ -5496,13 +5496,13 @@ a.badge-dark.focus {
 
 .progress-bar-animated {
   -webkit-animation: progress-bar-stripes 1s linear infinite;
-          animation: progress-bar-stripes 1s linear infinite;
+  animation: progress-bar-stripes 1s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .progress-bar-animated {
     -webkit-animation: none;
-            animation: none;
+    animation: none;
   }
 }
 
@@ -5873,8 +5873,8 @@ button.close {
   background-color: transparent;
   border: 0;
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 a.close.disabled {
@@ -5890,7 +5890,7 @@ a.close.disabled {
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
   -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   opacity: 0;
   border-radius: 0.25rem;
 }
@@ -5959,7 +5959,7 @@ a.close.disabled {
   transition: transform 0.3s ease-out;
   transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
   -webkit-transform: translate(0, -50px);
-          transform: translate(0, -50px);
+  transform: translate(0, -50px);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -5970,7 +5970,7 @@ a.close.disabled {
 
 .modal.show .modal-dialog {
   -webkit-transform: none;
-          transform: none;
+  transform: none;
 }
 
 .modal-dialog-scrollable {
@@ -6470,7 +6470,7 @@ a.close.disabled {
   width: 100%;
   margin-right: -100%;
   -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
   transition: -webkit-transform 0.6s ease-in-out;
   transition: transform 0.6s ease-in-out;
   transition: transform 0.6s ease-in-out, -webkit-transform 0.6s ease-in-out;
@@ -6491,20 +6491,20 @@ a.close.disabled {
 .carousel-item-next:not(.carousel-item-left),
 .active.carousel-item-right {
   -webkit-transform: translateX(100%);
-          transform: translateX(100%);
+  transform: translateX(100%);
 }
 
 .carousel-item-prev:not(.carousel-item-right),
 .active.carousel-item-left {
   -webkit-transform: translateX(-100%);
-          transform: translateX(-100%);
+  transform: translateX(-100%);
 }
 
 .carousel-fade .carousel-item {
   opacity: 0;
   transition-property: opacity;
   -webkit-transform: none;
-          transform: none;
+  transform: none;
 }
 
 .carousel-fade .carousel-item.active,
@@ -6641,14 +6641,14 @@ a.close.disabled {
 @-webkit-keyframes spinner-border {
   to {
     -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
 @keyframes spinner-border {
   to {
     -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
@@ -6661,7 +6661,7 @@ a.close.disabled {
   border-right-color: transparent;
   border-radius: 50%;
   -webkit-animation: spinner-border 0.75s linear infinite;
-          animation: spinner-border 0.75s linear infinite;
+  animation: spinner-border 0.75s linear infinite;
 }
 
 .spinner-border-sm {
@@ -6673,7 +6673,7 @@ a.close.disabled {
 @-webkit-keyframes spinner-grow {
   0% {
     -webkit-transform: scale(0);
-            transform: scale(0);
+    transform: scale(0);
   }
 
   50% {
@@ -6684,7 +6684,7 @@ a.close.disabled {
 @keyframes spinner-grow {
   0% {
     -webkit-transform: scale(0);
-            transform: scale(0);
+    transform: scale(0);
   }
 
   50% {
@@ -6701,7 +6701,7 @@ a.close.disabled {
   border-radius: 50%;
   opacity: 0;
   -webkit-animation: spinner-grow 0.75s linear infinite;
-          animation: spinner-grow 0.75s linear infinite;
+  animation: spinner-grow 0.75s linear infinite;
 }
 
 .spinner-grow-sm {
@@ -10609,9 +10609,9 @@ a.text-dark:focus {
     page-break-after: avoid;
   }
 
-@page {
+  @page {
     size: a3;
-}
+  }
 
   body {
     min-width: 992px !important;
@@ -10659,142 +10659,3 @@ a.text-dark:focus {
     border-color: #dee2e6;
   }
 }
-
-/* Styles customisés */
-
-h1,
-h2,
-h3,
-h4,
-label,
-ul,
-li,
-.btn-primary {
-  font-family: "Pacifico", cursive;
-}
-
-p {
-  font-family: 'Hind Guntur', sans-serif;
-  font-size: 16px;
-}
-
-
-a,
-a:hover {
-  text-decoration: none;
-  color: white;
-}
-
-.black {
-  color: black;
-}
-
-.header {
-  color: white;
-  background-color: lightpink;
-}
-
-.article {
-  background-color: rgb(255, 210, 217);
-  color: white;
-}
-
-.nav-title {
-  color: white;
-  font-size: 2rem;
-}
-
-.prix {
-  font-size: 2rem;
-  margin-bottom: 0;
-  color: lightpink;
-  font-family: Pacifico;
-}
-
-.titre {
-  text-align: center;
-  size: 100%;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-}
-
-.img-borders {
-  border-style: solid;
-  border: 20px solid lightpink;
-}
-
-.bin {
-  background-image: url(/images/bin.png?30327fd9c3b3dc5e3f4e7ea76655555c);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: rgba(0, 0, 0, 0);
-  transition: ease-in-out 0.5s;
-  border: none;
-  width: 60px;
-  height: 60px;
-}
-
-.bin:hover {
-  width: 70px;
-  height: 70px;
-}
-
-h2 {
-  font-size: 3rem;
-  margin-bottom: 0;
-}
-
-.case_prix {
-  background-color: white;
-  height: 90%;
-}
-
-.btn-primary:hover {
-  color: lightpink;
-  background-color: white;
-  border-color: lightpink;
-  border-width: 10px;
-  box-sizing: content-box;
-  transition: all ease 0.5s;
-}
-
-.btn-primary {
-  color: #fff;
-  background-color: lightpink;
-  border-color: lightpink;
-  border-width: 10px;
-  box-sizing: content-box;
-}
-
-.btn {
-  font-size: 1.8rem;
-  display: block;
-}
-
-.infos {
-  top: 30%;
-  left: 0;
-  right: 0;
-}
-
-.qte {
-  width: 15%;
-}
-
-.navbar-toggler {
-  background-color: white;
-}
-
-.navbar-toggler-icon {
-  color: grey;
-}
-
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-}
-

@@ -1,9 +1,4 @@
-/* Styles customisés Administration BACK OFFICE */
-
-@import url(https://fonts.googleapis.com/css?family=Nunito);
-@import url(https://fonts.googleapis.com/css?family=Pacifico);
-@import url(https://fonts.googleapis.com/css?family=Hind+Guntur);
-
+/* Styles customisés */
 
 h1,
 h2,
@@ -13,7 +8,7 @@ label,
 ul,
 li,
 .btn-primary {
-    font-family: "Nunito", cursive;
+    font-family: "Pacifico", cursive;
 }
 
 p {
@@ -34,11 +29,12 @@ a:hover {
 
 .header {
     color: white;
-    background-color: dimgrey;
+    background-color: lightpink;
 }
 
 .article {
-    background-color: lightgray;
+    background-color: rgb(255, 210, 217);
+    color: white;
 }
 
 .nav-title {
@@ -48,8 +44,8 @@ a:hover {
 
 .prix {
     font-size: 2rem;
-
     margin-bottom: 0;
+    color: lightpink;
     font-family: Pacifico;
 }
 
@@ -65,7 +61,7 @@ img {
 
 .img-borders {
     border-style: solid;
-    border: 20px solid grey;
+    border: 20px solid lightpink;
 }
 
 .bin {
@@ -90,19 +86,15 @@ h2 {
     margin-bottom: 0;
 }
 
-h3 {
-    margin-top: 8px;
-}
-
 .case_prix {
     background-color: white;
     height: 90%;
 }
 
 .btn-primary:hover {
-    color: grey;
+    color: lightpink;
     background-color: white;
-    border-color: grey;
+    border-color: lightpink;
     border-width: 10px;
     box-sizing: content-box;
     transition: all ease 0.5s;
@@ -110,8 +102,8 @@ h3 {
 
 .btn-primary {
     color: #fff;
-    background-color: grey;
-    border-color: grey;
+    background-color: lightpink;
+    border-color: lightpink;
     border-width: 10px;
     box-sizing: content-box;
 }
@@ -143,3 +135,4 @@ h3 {
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
+

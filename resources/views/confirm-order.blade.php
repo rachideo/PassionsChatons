@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Accueil')
+@section('title', 'Order sent')
 
 @section('content')
     <h2> Votre commande/ résumé de commande</h2>
