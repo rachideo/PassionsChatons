@@ -30,15 +30,15 @@
             <br>
         </div>
         <div class="container-fluid bg-3 text-center">
-            <img src = "{{asset ($articleDetails->photo)}}" class="rounded mx-auto d-block img-borders">
+            <img src = "{{asset ($articleDetails->image)}}" class="rounded mx-auto d-block img-borders">
         </div>
         <div class="form-group">
             <label for="photo">Image URL :</label>
-            <input type="text" class="form-control" name ="new_photo" value="{{$articleDetails->photo}}">
+            <input type="text" class="form-control" name ="new_photo" value="{{$articleDetails->image}}">
         </div>
         <div class="form-group">
             <label for="prix">Prix (en €) :</label>
-            <input type="text" class="form-control" name ="new_prix" value="{{$articleDetails->prix}}">
+            <input type="text" class="form-control" name ="new_prix" value="{{$articleDetails->price}}">
         </div>
         <div class="form-group">
             <label for="description">Description :</label>
