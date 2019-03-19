@@ -3,7 +3,7 @@
 @section('title', 'Identification')
 
 @section('content')
-    <div class = "container ">
+    <div class = "container">
         <div class="row">
             <div class="col-md myForms p-4 m-4">
                 <h3> Identifiez vous</h3> <br>
