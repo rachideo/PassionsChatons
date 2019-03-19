@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Validator;
+use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 use App\Product;
 
@@ -21,28 +21,29 @@ class BackofficeController extends Controller {
     public function messages()
     {
         return [
-            'new_name.required' => 'A title is required',
-            'new_prix.required'  => 'A message is required',
-            'new_photo.required'  => 'A message is required',
-            'new_description.required'  => 'A message is required',
+            'nom.required' => 'A title is required',
+            'prix.required'  => 'A message is required',
+            'photo.required'  => 'A message is required',
+            'description.required'  => 'A message is required',
         ];
     }
 
 
     public function store(Request $request) // AJOUT DE NOUVEAU PRODUIT
     {
+
         $request->validate([
-            'new_name'=> 'required',
-            'new_prix'=> 'required',
-            'new_photo'=> 'required',
-            'new_description'=> 'required'
+            'nom'=> 'required',
+            'prix'=> 'required|numeric',
+            'photo'=> 'required|image',
+            'description'=> 'required'
         ]);
 
         $product = new Product;
-        $product->name = $request->get('new_name');
-        $product->price = $request->get('new_prix');
-        $product->image = $request->get('new_photo');
-        $product->description = $request->get('new_description');
+        $product->name = $request->get('nom');
+        $product->price = $request->get('prix');
+        $product->image = $request->get('photo');
+        $product->description = $request->get('description');
         $product->save();
 
         return redirect('admin/liste-produits')->with('status', 'Le produit a bien été ajouté');
