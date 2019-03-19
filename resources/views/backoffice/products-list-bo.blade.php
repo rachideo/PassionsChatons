@@ -21,6 +21,8 @@
     </div>
 
     <form action="{{ route('delete.product') }}" method="post">
+        @method('DELETE')
+        @csrf
 
         @foreach ($tableau as $key => $chaton)
             <div class="row align-items-center article my-3 p-3 justify-content-md-center">
@@ -35,13 +37,12 @@
                 </div>
                 <div class="col-md-3 p-4">
                     <div class="text-center custom-control custom-checkbox">
-                        <input class="custom-control-input" type="checkbox" name="check[]" id="{{ $chaton->id  }}" value="{{ $chaton->id  }}">
+                        <input class="custom-control-input" type="checkbox" name="check[]" id="{{ $chaton->id  }}" value="{{ $chaton->id }}">
                         <label class="custom-control-label" for="{{ $chaton->id  }}">Supprimer produit</label>
                     </div>
                 </div>
             </div>
         @endforeach
-
         <input type="submit" value="Supprimer la sélection" class="mx-auto my-4 btn btn-primary">
     </form>
 

@@ -2,9 +2,9 @@
 
 <html lang="fr">
 
-@include('backoffice.head-back')
-
 <body>
+
+@include('backoffice.head-bo')
 
 @include('backoffice.navbar-bo')
 
@@ -17,9 +17,10 @@
     @yield('content')
 </div>
 
-
-</body>
+@include('backoffice.footer-bo')
 
 @include('scripts')
+
+</body>
 
 </html>

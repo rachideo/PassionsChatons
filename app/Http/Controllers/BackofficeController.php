@@ -40,8 +40,8 @@ class BackofficeController extends Controller {
 
         $product = new Product;
         $product->name = $request->get('new_name');
-        $product->prix = $request->get('new_prix');
-        $product->photo = $request->get('new_photo');
+        $product->price = $request->get('new_prix');
+        $product->image = $request->get('new_photo');
         $product->description = $request->get('new_description');
         $product->save();
 
@@ -52,6 +52,7 @@ class BackofficeController extends Controller {
     public function show($product) // FORMULAIRE DE MODIFICATION DE PRODUIT
     {
         $chaton = \App\Product::where('name',$product)->first();
+
 
         if (isset($chaton)) {
             return view('backoffice.edit-product-details-bo')->with('articleDetails', $chaton);
@@ -72,8 +73,8 @@ class BackofficeController extends Controller {
 
         $product = \App\Product::find($request->get('id'));
         $product->name = $request->get('new_name');
-        $product->prix = $request->get('new_prix');
-        $product->photo = $request->get('new_photo');
+        $product->price = $request->get('new_prix');
+        $product->image = $request->get('new_photo');
         $product->description = $request->get('new_description');
         $product->save();
 
@@ -82,10 +83,28 @@ class BackofficeController extends Controller {
 
     public function destroy(Request $request) // SUPPRESSION DE PRODUIT
     {
-        $product = \App\Product::find($request->get('id'));
-        $product->delete();
 
-        return redirect('admin/liste-produits')->with('status', 'Le produit a bien été supprimé');
+        if (isset($request->check)) {
+
+            $selected = $request->input('check');
+            \App\Product::destroy($selected);
+
+            if (count($selected) == 1) {
+                $message = "Le produit a bien été supprimé.";
+            } else {
+                $message = "Les produits ont bien été supprimés.";
+            }
+
+            return redirect()->route('bo.products.list')->with('status', $message);
+
+        } else {
+
+            $product = $request->input('id');
+            \App\Product::destroy($product);
+
+            return redirect()->route('bo.products.list')->with('status', 'Le produit a bien été supprimé');
+        }
+
     }
 
 
