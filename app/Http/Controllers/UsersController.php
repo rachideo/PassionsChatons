@@ -8,12 +8,11 @@ class UsersController extends Controller {
 
 
     public function show() {
-    $user = \App\User::all();
+    $users = \App\User::all();
 
-        if (isset($user)) {
-        return view('my-account')->with('userDetails', $user);
-        } else {
-        return back();
+         {
+        return view('my-account')->with('users', $users);
+
 }
     //
 }
