@@ -12,10 +12,9 @@ class UsersController extends Controller {
 
          {
         return view('my-account')->with('users', $users);
-
-}
+        }
     //
-}
+    }
 
 
 
