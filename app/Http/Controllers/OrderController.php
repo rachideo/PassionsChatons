@@ -8,16 +8,31 @@ class OrderController extends Controller
 {
     public function show(Request $request)
     {
-        $userBasket = session('basket');
+
+        /* Création nouvelle commande dans la table orders */
+
         $newOrder = new \App\Order;
-
-        $newOrder->customer = $request->customer;
-        $newOrder->date = date();
-
+        $newOrder->user_id = 1; // Attaché à l'utilisateur 1 : à changer par l'id user
+        $newOrder->save();
 
 
-        dd($newOrder);
+        /* Création des lignes de la commande dans la table product_order */
 
-        return view('confirm-order');
+        $currentOrder = \App\Order::all()->sortByDesc('created_at')->first();
+
+        foreach (session('basket') as $productAttributes) {
+            $currentOrder->products()->attach(1, // Attaché à l'utilisateur 1 : à changer par l'id user
+                [
+                    'order_id' => $currentOrder->id,
+                    'product_id' => $productAttributes['id'],
+                    'quantity' => $productAttributes['quantity']
+                ]
+            );
+        }
+
+        $orderContent = session('basket');
+//        $request->session('basket')->flush();
+
+        return view('confirm-order', ['orderContent' => $orderContent]);
     }
 }

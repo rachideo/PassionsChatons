@@ -20,7 +20,7 @@ class CreateOrdersTable extends Migration
             $table->collation = 'utf8_unicode_ci';
 
             $table->increments('id');
-            $table->char('user_id');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }
