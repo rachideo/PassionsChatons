@@ -8,17 +8,17 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('product.list') }}">Cat-alogue</a>
+                <a class="nav-link" href="{{ route('product_list') }}">Cat-alogue</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('basket.index') }}">Mon panier</a>
+                <a class="nav-link" href="{{ route('basket_index') }}">Mon panier</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('contact') }}">Contact</a>
             </li>
         </ul>
         <div class="nav-item">
-            <a href="{{ route('sign-in') }}">
+            <a href="{{ route('sign_in') }}">
                 <img alt="S'identifier" src="{{ asset('images/icon-myAccount.png') }}" class="float-right w-25">
             </a>
         </div>

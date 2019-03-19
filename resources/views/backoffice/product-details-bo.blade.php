@@ -15,7 +15,7 @@
     @endif
 
 
-    <form method="POST" action="{{ route('update.product') }}">
+    <form method="POST" action="{{ route('update_product') }}">
         @csrf
         @method('PUT')
         <h1>Produit : {{$articleDetails->name}}</h1>
@@ -47,7 +47,7 @@
         <button type="submit" class="btn btn-secondary"  value="Update" >MODIFIER</button>
     </form>
 
-    <form method="POST" action="{{ route('delete.product') }}">
+    <form method="POST" action="{{ route('delete_product') }}">
         @csrf
         @method('DELETE')
         <div class="form-group">
