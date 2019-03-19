@@ -30,9 +30,9 @@ class OrderController extends Controller
             );
         }
 
-        $orderContent = session('basket');
-//        $request->session('basket')->flush();
+        $request->session()->put('order', session('basket'));
+        $request->session()->forget('basket');
 
-        return view('confirm-order', ['orderContent' => $orderContent]);
+        return view('confirm-order', ['orderContent' => session('order')]);
     }
 }
