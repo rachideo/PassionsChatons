@@ -13,7 +13,12 @@ class CreateOrdersTable extends Migration
      */
     public function up()
     {
+
         Schema::create('orders', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+            $table->charset = 'utf8';
+            $table->collation = 'utf8_unicode_ci';
+
             $table->increments('id');
             $table->char('user_id');
             $table->timestamps();
