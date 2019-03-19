@@ -43,9 +43,9 @@ Route::get('/order', 'OrderController@show')
 
 /*  _____CONNEXION_____  */
 
-Route::get('/connexion', function () {
-    return view('sign-in');
-})->name('sign_in');
+//Route::get('/connexion', function () {
+//    return view('sign-in');
+//})->name('sign_in');
 
 Route::get('/connexion/creer-compte', function () {
     return view('sign-up');
@@ -54,13 +54,14 @@ Route::get('/connexion/creer-compte', function () {
 
 /*  _____COMPTE_____  */
 
-Route::get('/mon-compte', function () {
-    return view('my-account');
-})->name('account');
+Route::get('/mon-compte', 'UsersController@show')
+    ->name('my_account');
+
 
 Route::get('/identification', function () {
     return view('sign-in');
 })->name('sign_in');
+
 
 
 /*  ______CONTACT_____  */
