@@ -21,11 +21,11 @@
         <input type="text" class="form-control" name="nom"/>
     </div>
     <div class="form-group">
-        <label for="prix">Prix :</label>
+        <label for="prix">Prix (en centime €) :</label>
         <input type="text" class="form-control" name="prix"/>
     </div>
     <div class="form-group">
-        <label for="photo">URL Photo:</label>
+        <label for="photo">Image :</label>
         <input type="text" class="form-control" name="photo"/>
     </div>
     <div class="form-group">

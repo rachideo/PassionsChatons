@@ -35,14 +35,17 @@ class BackofficeController extends Controller {
         $request->validate([
             'nom'=> 'required',
             'prix'=> 'required|numeric',
-            'photo'=> 'required|image',
+            'photo'=> array(
+                'required',
+                'regex:/\.(jpg|jpeg|png|gif)$/',
+            ),
             'description'=> 'required'
         ]);
 
         $product = new Product;
         $product->name = $request->get('nom');
         $product->price = $request->get('prix');
-        $product->image = $request->get('photo');
+        $product->image = '/images/'.$request->get('photo');
         $product->description = $request->get('description');
         $product->save();
 
@@ -65,18 +68,21 @@ class BackofficeController extends Controller {
 
     public function update(Request $request) // MODIFICATION DE PRODUIT
     {
-//        $request->validate([
-//            'new_name'=> 'required',
-//            'new_prix'=> 'required',
-//            'new_photo'=> 'required',
-//            'new_description'=> 'required'
-//        ]);
+        $request->validate([
+            'nom'=> 'required',
+            'prix'=> 'required|numeric',
+            'photo'=> array(
+                'required',
+                'regex:/\.(jpg|jpeg|png|gif)$/',
+            ),
+            'description'=> 'required'
+        ]);
 
         $product = \App\Product::find($request->get('id'));
-        $product->name = $request->get('new_name');
-        $product->price = $request->get('new_prix');
-        $product->image = $request->get('new_photo');
-        $product->description = $request->get('new_description');
+        $product->name = $request->get('nom');
+        $product->price = $request->get('prix');
+        $product->image = $request->get('photo');
+        $product->description = $request->get('description');
         $product->save();
 
         return redirect('admin/liste-produits')->with('status', 'Le produit a bien été modifié');

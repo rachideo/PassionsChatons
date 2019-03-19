@@ -25,23 +25,23 @@
         <br>
         <div>
             <label for="name">Nom du produit :</label>
-            <input type="text" class="form-control" name ="new_name" value="{{$articleDetails->name}}">
+            <input type="text" class="form-control" name ="nom" value="{{$articleDetails->name}}">
             <br>
         </div>
         <div class="container-fluid bg-3 text-center">
             <img src = "{{asset ($articleDetails->image)}}" class="rounded mx-auto d-block img-borders">
         </div>
         <div class="form-group">
-            <label for="photo">Image URL :</label>
-            <input type="text" class="form-control" name ="new_photo" value="{{$articleDetails->image}}">
+            <label for="photo">Image :</label>
+            <input type="text" class="form-control" name ="photo" value="{{$articleDetails->image}}">
         </div>
         <div class="form-group">
-            <label for="prix">Prix (en €) :</label>
-            <input type="text" class="form-control" name ="new_prix" value="{{$articleDetails->price}}">
+            <label for="prix">Prix (en centime €) :</label>
+            <input type="text" class="form-control" name ="prix" value="{{$articleDetails->price}}">
         </div>
         <div class="form-group">
             <label for="description">Description :</label>
-            <input type="text" class="form-control" name ="new_description" value="{{$articleDetails->description}}">
+            <input type="text" class="form-control" name ="description" value="{{$articleDetails->description}}">
         </div>
 
         <button type="submit" class="btn btn-secondary"  value="Update" >MODIFIER</button>
