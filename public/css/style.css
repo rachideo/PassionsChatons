@@ -136,3 +136,17 @@ h2 {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
+.myForms {
+    background-color: rgb(255, 210, 217);
+    margin: 5px;
+    padding: 10px 10px 10px 10px;
+
+}
+
+.whiteSubmit {
+    background-color: white;
+    color: rgb(255, 210, 217);
+    border-color: white;
+
+
+}

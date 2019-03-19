@@ -10,7 +10,7 @@ class UsersController extends Controller {
     public function show() {
     $user = \App\User::all();
 
-        if (isset(user)) {
+        if (isset($user)) {
         return view('my-account')->with('userDetails', $user);
         } else {
         return back();
