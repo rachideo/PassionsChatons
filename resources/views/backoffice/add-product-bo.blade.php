@@ -18,19 +18,19 @@
     @csrf
     <div class="form-group">
         <label for="name">Nom :</label>
-        <input type="text" class="form-control" name="new_name"/>
+        <input type="text" class="form-control" name="nom"/>
     </div>
     <div class="form-group">
         <label for="prix">Prix :</label>
-        <input type="text" class="form-control" name="new_prix"/>
+        <input type="text" class="form-control" name="prix"/>
     </div>
     <div class="form-group">
         <label for="photo">URL Photo:</label>
-        <input type="text" class="form-control" name="new_photo"/>
+        <input type="text" class="form-control" name="photo"/>
     </div>
     <div class="form-group">
         <label for="description">Description :</label>
-        <input type="text" class="form-control" name="new_description"/>
+        <input type="text" class="form-control" name="description"/>
     </div>
     <button type="submit" class="btn btn-primary">AJOUTER</button>
     </form>
