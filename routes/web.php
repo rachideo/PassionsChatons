@@ -10,31 +10,31 @@ route::get('/', function () {
 /*  _____PANIER_____  */
 
 Route::get('/panier', 'BasketController@index')
-    ->name('basket.index');
+    ->name('basket_index');
 
 Route::post('/panier', 'BasketController@store')
-    ->name('basket.store');
+    ->name('basket_store');
 
 Route::put('/panier', 'BasketController@update')
-    ->name('basket.update');
+    ->name('basket_update');
 
 Route::delete('/panier', 'BasketController@destroy')
-    ->name('basket.destroy');
+    ->name('basket_destroy');
 
 
 /*  _____PRODUITS_____  */
 
 Route::get('/liste-byName', 'ProductsController@listByName')
-    ->name('product.list.byName');
+    ->name('product_list_byName');
 
 Route::get('/liste-byPrice', 'ProductsController@listByPrice')
-    ->name('product.list.byPrice');
+    ->name('product_list_byPrice');
 
 Route::get('fiche-produit/{product}', 'ProductsController@show')
-    ->name('product.detail');
+    ->name('product_detail');
 
 Route::get('/liste-produits', 'ProductsController@index')
-    ->name('product.list');
+    ->name('product_list');
 
 /*  _____ORDER_____  */
 
@@ -45,22 +45,21 @@ Route::get('/order', 'OrderController@show')
 
 Route::get('/connexion', function () {
     return view('sign-in');
-})->name('sign-in');
+})->name('sign_in');
 
 Route::get('/connexion/creer-compte', function () {
     return view('sign-up');
-})->name('sign-up');
+})->name('sign_up');
 
 
 /*  _____COMPTE_____  */
 
-//Route::get('/mon-compte', function () {
-//    return view('my-account');
-//})->name('account');
+Route::get('/mon-compte', function () {
+    return view('my-account');
+})->name('account');
 
 Route::get('/identification', 'UsersController@show')
-    ->name('my-account');
-
+    ->name('my_account');
 
 
 /*  ______CONTACT_____  */
@@ -81,23 +80,23 @@ Route::get('/contact', function () {
 
 Route::get('/admin/ajout-produit', function () {
     return view ('backoffice.add-product-bo');
-})->name('add.product');
+})->name('add_product');
 
 Route::post('/admin/liste-produits/', 'BackOfficeController@store')
-    ->name('store.product');
+    ->name('store_product');
 
 Route::put('/admin/liste-produits/', 'BackofficeController@update')
-    ->name('update.product');
+    ->name('update_product');
 
 Route::delete('/admin/liste-produits/', 'BackofficeController@destroy')
-    ->name('delete.product');
+    ->name('delete_product');
 
 Route::get('/admin/produit-details/{product}', 'BackofficeController@index')
-    ->name('bo.product.details');
+    ->name('bo_product_details');
 
 Route::get('/admin/liste-produits/', 'BackofficeController@list')
-    ->name('bo.products.list');
+    ->name('bo_products_list');
 
 Route::get('/admin', function () {
-    return view('backoffice.welcome-bo');
-})->name('welcome.bo');
+    return view('backoffice.dashboard');
+})->name('bo_dashboard');

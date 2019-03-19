@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light header justify-content-between">
-    <a href="{{ route('welcome.bo') }}" class="navbar-brand">
+    <a href="{{ route('bo_dashboard') }}" class="navbar-brand">
         <h1 class="mx-2 nav-title">passionChaton.love</h1>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,10 +11,10 @@
                 <a class="nav-link" href="{{ route('welcome') }}">Retour FrontOffice</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('add.product') }}">Ajout Produit</a>
+                <a class="nav-link" href="{{ route('add_product') }}">Ajout Produit</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('bo.products.list') }}">Cat-alogue</a>
+                <a class="nav-link" href="{{ route('bo_products_list') }}">Cat-alogue</a>
             </li>
         </ul>
         <div class="nav-item">

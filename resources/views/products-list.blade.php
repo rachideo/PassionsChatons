@@ -4,7 +4,7 @@
 
 @section('content')
 
-<form action="{{ route('basket.store') }}" method="POST">
+<form action="{{ route('basket_store') }}" method="POST">
     @csrf
 
     <div class="dropdown">
@@ -12,18 +12,18 @@
             Trier par
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="{{ route('product.list','sort=price')}}">prix</a>
-            <a class="dropdown-item" href="{{ route('product.list','sort=name')}}">nom</a>
+            <a class="dropdown-item" href="{{ route('product_list','sort=price')}}">prix</a>
+            <a class="dropdown-item" href="{{ route('product_list','sort=name')}}">nom</a>
         </div>
     </div>
 
     @foreach ($tableau as $key => $chaton)
         <div class="row align-items-center article my-3 p-3 justify-content-md-center">
             <div class="col-md-2">
-                <a href="{{ route('product.detail',$chaton->name)}}"><img class="mx-auto mx-md-0 rounded-circle" src="{{ $chaton->image }}" alt="Photo" ></a>
+                <a href="{{ route('product_detail',$chaton->name)}}"><img class="mx-auto mx-md-0 rounded-circle" src="{{ $chaton->image }}" alt="Photo" ></a>
             </div>
             <div class="col-md-3 m-4">
-                <a href="{{ route('product.detail',$chaton->name)}}"><h2 class="text-center">{{ $chaton->name }}</h2></a>
+                <a href="{{ route('product_detail',$chaton->name)}}"><h2 class="text-center">{{ $chaton->name }}</h2></a>
             </div>
             <div class="case_prix col-md-2 p-2">
                 <p class="text-center prix">{{ $chaton->price / 100 }} €</p>

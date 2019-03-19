@@ -6,7 +6,7 @@
 
     @if(!empty(session('basket')))
 
-        <form action="{{ route('basket.update') }}" method="POST">
+        <form action="{{ route('basket_update') }}" method="POST">
             @method('PUT')
             @csrf
                 <div class="row justify-content-center">

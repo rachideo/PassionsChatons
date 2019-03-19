@@ -14,7 +14,7 @@
         </div>
     @endif
 
-    <form method="POST" action="{{route('store.product')}}">
+    <form method="POST" action="{{route('store_product')}}">
     @csrf
     <div class="form-group">
         <label for="name">Nom :</label>
