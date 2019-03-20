@@ -15,15 +15,16 @@ class ProductOrder extends Migration
     {
 
         Schema::create('product_order', function (Blueprint $table) {
-
             $table->engine = 'InnoDB';
             $table->charset = 'utf8';
             $table->collation = 'utf8_unicode_ci';
 
             $table->increments('id');
-            $table->integer('product_id');
-            $table->integer('order_id');
-            $table->integer('quantity')->unsigned();
+            $table->unsignedInteger('product_id');
+            $table->foreign('product_id')->references('id')->on('products');
+            $table->unsignedInteger('order_id');
+            $table->foreign('order_id')->references('id')->on('orders');
+            $table->unsignedInteger('quantity');
         });
     }
 
