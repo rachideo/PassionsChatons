@@ -15,7 +15,7 @@
                     <div class="col-10 col-md-6 col-lg-4 article align-items-center p-2 position-relative justify-content-center align-middle">
                         <img class="d-inline-block w-100 rounded-circle" src="{{ asset($values['image']) }}">
                         <div class="row form-group m-3 justify-content-center">
-                            <input class="d-inline-block qte form-control-sm" type="text" name="{{ $itemId }}" id="quantity_{{ $itemId }}" value="{{ $values['quantity'] }}">
+                            <input class="d-inline-block qte form-control-sm" type="number" min="1" name="{{ $itemId }}" id="quantity_{{ $itemId }}" value="{{ $values['quantity'] }}">
                             <label class="d-inline-block mx-1" for="quantity_{{ $itemId }}">{{ $values['name'] }} demandés, soit {{ $values['quantity'] * ($values['price'] / 100) }} €</label>
                         </div>
                         <div class="infos position-absolute align-items-center mx-auto d-inline-block">
@@ -39,7 +39,6 @@
         <!-- Formulaire de validation de commande -->
         <form method="get" action="{{ route('order') }}">
             @csrf
-            <input class="d-block form-control-sm mx-auto" type="text" name="customer" id="customer" placeholder="Votre Nom" value="">
             <input type="submit" value="Valider la commande" class="mx-auto my-2 btn btn-primary">
         </form>
 
@@ -50,13 +49,5 @@
         </div>
 
     @endif
-        <!--
-        <p class="d-block text-center">Erreur de saisie !</p>
-
-        <form action="">
-            <input type="submit" class="mx-auto my-4 btn btn-primary" value="Retour au panier">
-        </form>
-
-        -->
 
 @endsection
