@@ -31,16 +31,15 @@
         </form>
 
         <div class="m-3 row">
-            <div class="col align-items-center p-2 align-middle">
-                <p class="text-center">Total commande : {{ session('totalPrice') / 100 }} €</p>
+            <div class="col align-items-center align-middle">
+                <h3 class="text-center">Total commande : {{ session('totalPrice') / 100 }} €</h3>
             </div>
         </div>
-
-        <!-- Formulaire de validation de commande -->
-        <form method="get" action="{{ route('order') }}">
-            @csrf
-            <input type="submit" value="Valider la commande" class="mx-auto my-2 btn btn-primary">
-        </form>
+        <div class="m-3 row">
+            <div class="col align-middle text-center">
+                <a href="{{ route('order') }}" class="d-inline-block mx-auto btn btn-primary w-md-25">Valider la commande</a>
+            </div>
+        </div>
 
     @else
 

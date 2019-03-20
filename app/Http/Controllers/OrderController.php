@@ -31,12 +31,11 @@ class OrderController extends Controller
                 );
             }
 
-            $request->session()->put('order', session('basket'));
-            $request->session()->put('orderTotal', session('totalPrice'));
-            $request->session()->forget('basket');
-
+            session()->put('order', session('basket'));
+            session()->put('orderTotal', session('totalPrice'));
+            session()->forget('basket');
         }
 
-        return view('confirm-order', ['orderContent' => session('order')]);
+        return view('confirm-order')->with('orderContent', session('order'));
     }
 }
