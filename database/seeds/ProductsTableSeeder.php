@@ -45,5 +45,12 @@ class ProductsTableSeeder extends Seeder
             'image' => 'images/Floppy.jpg',
             'description' => 'Floppy is a weird kitten which is always curious about anything. Don\'t be surprised if you find him under your pants while you are sitting on the toilet...',
         ]);
+
+        DB::table('products')->insert([
+            'name' => 'Chocolate',
+            'price' => 120000,
+            'image' => 'images/Chocolate.jpg',
+            'description' => 'Chocolate would make you drool! Terribly cute and elegant, Chocolate is the warmest friend.',
+        ]);
     }
 }
