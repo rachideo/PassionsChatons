@@ -13,10 +13,12 @@
         </div>
     </div>
 
+    @if (null!==session()->get('name[]'))
     @foreach (session()->get('name[]') as $key => $name)
         <div class="alert alert-info" role="alert">
             Le produit {{$name}} a été ajouté.
         </div>
         @endforeach
+    @endif
 
 @endsection
