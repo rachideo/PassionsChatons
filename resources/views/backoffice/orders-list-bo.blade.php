@@ -4,12 +4,6 @@
 
 @section('content')
 
-{{--    @if (session('status'))
-        <div class="alert alert-success">
-            {{ session('status') }}
-        </div>
-    @endif--}}
-
     <div class="dropdown">
         <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Trier par
@@ -20,8 +14,9 @@
         </div>
     </div>
 
-        @foreach ($orders as $order)
+    @foreach ($orders as $order)
 
+        <a href="{{ route('bo_order_details', $order->id) }}">
             <div class="row align-items-center article my-1 p-2 justify-content-md-center">
                 <div class="col-md-4 m-2">
                     <h3 class="">Commande n° {{ $order->id }}</h3>
@@ -33,7 +28,8 @@
                     <p class="text-center prix">{{ $order->orderTotal / 100 }} €</p>
                 </div>
             </div>
+        </a>
 
-        @endforeach
+    @endforeach
 
 @endsection
