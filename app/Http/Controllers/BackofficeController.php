@@ -42,6 +42,8 @@ class BackofficeController extends Controller {
             'description'=> 'required'
         ]);
 
+        $name = $request->get('nom');
+
         $product = new Product;
         $product->name = $request->get('nom');
         $product->price = $request->get('prix');
@@ -49,7 +51,10 @@ class BackofficeController extends Controller {
         $product->description = $request->get('description');
         $product->save();
 
-        return redirect('admin/liste-produits')->with('status', 'Le produit a bien été ajouté');
+        session()->push('name[]', $request->get('nom'));
+        session()->push('add_time', date('H:i:s d-m-Y '));
+
+        return redirect('admin/liste-produits')->with('status', 'Le produit a bien été ajouté')->with(['name'=> $name]);
     }
 
 
