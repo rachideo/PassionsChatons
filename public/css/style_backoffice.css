@@ -103,7 +103,7 @@ h3 {
     color: grey;
     background-color: white;
     border-color: grey;
-    border-width: 10px;
+    border-width: 5px;
     box-sizing: content-box;
     transition: all ease 0.5s;
 }
@@ -112,12 +112,12 @@ h3 {
     color: #fff;
     background-color: grey;
     border-color: grey;
-    border-width: 10px;
+    border-width: 5px;
     box-sizing: content-box;
 }
 
 .btn {
-    font-size: 1.8rem;
+    font-size: 0.9rem;
     display: block;
 }
 

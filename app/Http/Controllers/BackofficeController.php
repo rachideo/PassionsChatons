@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 use App\Product;
+use Illuminate\Support\Facades\DB;
 
 
 class BackofficeController extends Controller {
@@ -12,26 +13,16 @@ class BackofficeController extends Controller {
     /**
      * @param Request $request
      * @param  \Illuminate\Validation\Validator  $validator
+     * @return \Illuminate\Http\RedirectResponse
      * @method bool validate(array $rules, ...$params) Validate the given request with the given rules.
      * @method array validated() Get the validated data from the request.
      * @return array
      * @return mixed
      */
 
-    public function messages()
-    {
-        return [
-            'nom.required' => 'A title is required',
-            'prix.required'  => 'A message is required',
-            'photo.required'  => 'A message is required',
-            'description.required'  => 'A message is required',
-        ];
-    }
-
 
     public function store(Request $request) // AJOUT DE NOUVEAU PRODUIT
     {
-
         $request->validate([
             'nom'=> 'required',
             'prix'=> 'required|numeric',
@@ -57,7 +48,6 @@ class BackofficeController extends Controller {
     {
         $chaton = \App\Product::where('name',$product)->first();
 
-
         if (isset($chaton)) {
             return view('backoffice.edit-product-details-bo')->with('articleDetails', $chaton);
         } else {
@@ -68,6 +58,7 @@ class BackofficeController extends Controller {
 
     public function update(Request $request) // MODIFICATION DE PRODUIT
     {
+//        dd($request);
         $request->validate([
             'nom'=> 'required',
             'prix'=> 'required|numeric',
@@ -78,15 +69,40 @@ class BackofficeController extends Controller {
             'description'=> 'required'
         ]);
 
-        $product = \App\Product::find($request->get('id'));
-        $product->name = $request->get('nom');
-        $product->price = $request->get('prix');
-        $product->image = $request->get('photo');
-        $product->description = $request->get('description');
+        $undo = [
+            'type' => 'modification',
+            'time' => date('H:i:s d-m-Y '),
+            'product_info' => DB::table('products')->where('id', $request->get('id'))->get()
+        ];
+        session()->push('undo', $undo);
+
+        $product = Product::find( $request->input('id'));
+        $product->name = $request->input('nom');
+        $product->price = $request->input('prix');
+        $product->image = $request->input('photo');
+        $product->description = $request->input('description');
+
         $product->save();
 
         return redirect('admin/liste-produits')->with('status', 'Le produit a bien été modifié');
     }
+
+
+    public function cancel(Request $request) // ANNULER UNE MODIFICATION DE PRODUIT
+    {
+        $newProduct = Product::find( $request->input('id'));
+        $newProduct->name =  session()->get('undo.0.product_info.0')->name;
+        $newProduct->price =  session()->get('undo.0.product_info.0')->price;
+        $newProduct->image =  session()->get('undo.0.product_info.0')->image;
+        $newProduct->description =  session()->get('undo.0.product_info.0')->description;
+
+        $newProduct->save();
+
+        session()->pull('undo','default');
+
+        return redirect('admin/liste-produits')->with('status', 'La modification du produit a bien été annulé');
+    }
+
 
     public function destroy(Request $request) // SUPPRESSION DE PRODUIT
     {
@@ -105,7 +121,6 @@ class BackofficeController extends Controller {
             return redirect()->route('bo.products.list')->with('status', $message);
 
         } else {
-
             $product = $request->input('id');
             \App\Product::destroy($product);
 
@@ -115,12 +130,13 @@ class BackofficeController extends Controller {
     }
 
 
-    public function index($product) // PAGE DETAIL PRODUIT AVEC BOUTON EDIT
+    public function index($product) // PAGE DETAIL PRODUIT AVEC FONCTION EDITION ET SUPPRESSION
     {
         $chaton = \App\Product::where('name',$product)->first();
 
         if (isset($chaton)) {
             return view('backoffice.product-details-bo')->with('articleDetails', $chaton);
+
         } else {
             return back();
         }
@@ -136,7 +152,7 @@ class BackofficeController extends Controller {
             $sorted = $chatons->sortBy('name');
             $sorted->values()->all();
         } elseif ($data == 'price') {
-            $sorted = $chatons->sortBy('prix');
+            $sorted = $chatons->sortBy('price');
             $sorted->values()->all();
         } else {
             $sorted = $chatons;
