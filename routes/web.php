@@ -24,17 +24,22 @@ Route::delete('/panier', 'BasketController@destroy')
 
 /*  _____PRODUITS_____  */
 
-Route::get('/liste-byName', 'ProductsController@listByName')
-    ->name('product_list_byName');
-
-Route::get('/liste-byPrice', 'ProductsController@listByPrice')
-    ->name('product_list_byPrice');
+//Route::get('/liste-byName', 'ProductsController@listByName')
+//    ->name('product_list_byName');
+//
+//Route::get('/liste-byPrice', 'ProductsController@listByPrice')
+//    ->name('product_list_byPrice');
 
 Route::get('fiche-produit/{product}', 'ProductsController@show')
     ->name('product_detail');
 
 Route::get('/liste-produits', 'ProductsController@index')
     ->name('product_list');
+
+Route::get('/liste-chiots', 'ProductsController@indexpup')
+    ->name('product_list_pups');
+
+
 
 /*  _____ORDER_____  */
 
