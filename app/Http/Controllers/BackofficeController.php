@@ -106,14 +106,14 @@ class BackofficeController extends Controller {
                 $message = "Les produits ont bien été supprimés.";
             }
 
-            return redirect()->route('bo.products.list')->with('status', $message);
+            return redirect()->route('bo_products_list')->with('status', $message);
 
         } else {
 
             $product = $request->input('id');
             \App\Product::destroy($product);
 
-            return redirect()->route('bo.products.list')->with('status', 'Le produit a bien été supprimé');
+            return redirect()->route('bo_products_list')->with('status', 'Le produit a bien été supprimé');
         }
 
     }
