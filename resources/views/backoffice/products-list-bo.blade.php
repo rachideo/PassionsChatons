@@ -10,12 +10,23 @@
         </div>
     @endif
 
-    @if (null!==session()->get('name'))
-        @foreach (session()->get('name[]') as $key => $name)
+    @if (null!==session()->get('undo'))
+        @foreach (session()->get('undo') as $undo_foreach)
             <div class="alert alert-info" role="alert">
-            Le produit {{$name}} a été ajouté.
+                Annuler la {{$undo_foreach['type']}} du produit {{$undo_foreach['product_info'][0]->name}} faite à {{$undo_foreach['time']}} ?
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <form method="POST" action="{{ route('cancel_edit') }}">  {{--Annulation de la modification --}}
+                    @csrf
+                    @method('PUT')
+                        <div class="form-group">
+                            <input type="hidden" class="form-control" name="id" value="{{$undo_foreach['product_info'][0]->id}}"/>
+                        </div>
+                    <button type="submit" class="btn btn-outline-info"  value="Update" >OK</button>
+                </form>
             </div>
-            @endforeach
+        @endforeach
     @endif
 
     <div class="dropdown">
@@ -35,7 +46,7 @@
         @foreach ($tableau as $key => $chaton)
             <div class="row align-items-center article my-1 justify-content-md-center">
                 <div class="col-md-2">
-                    <a href="{{ route('bo_product_details',$chaton->name)}}"><img class="w-50 mx-auto mx-md-0 rounded-circle" src="{{ asset($chaton->image) }}" alt="Photo" ></a>
+                    <a href="{{ route('bo_product_details',$chaton->name)}}"><img class="w-50 mx-auto mx-md-0 w-50 rounded-circle" src="{{ asset($chaton->image) }}" alt="Photo" ></a>
                 </div>
                 <div class="col-md-3 m-4">
                     <a href="{{ route('bo_product_details',$chaton->name)}}"><h3 class="text-center">{{ $chaton->name }}</h3></a>
