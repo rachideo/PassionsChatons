@@ -85,15 +85,19 @@ Route::get('/contact', function () {
 
 /*  ______BACKOFFICE_____  */
 
+
 Route::get('/admin/ajout-produit', function () {
     return view ('backoffice.add-product-bo');
 })->name('add_product');
 
-Route::post('/admin/liste-produits/', 'BackOfficeController@store')
+Route::post('/admin/liste-produits/', 'BackofficeController@store')
     ->name('store_product');
 
 Route::put('/admin/liste-produits/', 'BackofficeController@update')
     ->name('update_product');
+
+Route::put('/admin/liste-produit/annulation', 'BackofficeController@cancel')
+    ->name('cancel_edit');
 
 Route::delete('/admin/liste-produits/', 'BackofficeController@destroy')
     ->name('delete_product');
@@ -113,3 +117,4 @@ Route::get('/admin/commandes', 'BackofficeOrdersController@index')
 
 Route::get('/admin/commandes/{orderId}', 'BackofficeOrdersController@show')
     ->name('bo_order_details');
+

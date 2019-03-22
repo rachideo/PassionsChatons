@@ -2,9 +2,9 @@
 
 <html lang="fr">
 
-<body>
-
 @include('backoffice.head-bo')
+
+<body>
 
 @include('backoffice.navbar-bo')
 

@@ -15,7 +15,7 @@
     @endif
 
 
-    <form method="POST" action="{{ route('update_product') }}">
+    <form  method="POST" action="{{ route('update_product') }}">
         @csrf
         @method('PUT')
         <h1>Produit : {{$articleDetails->name}}</h1>
@@ -59,5 +59,6 @@
         </div>
         <button type="submit" class="btn btn-danger">SUPPRIMER</button>
     </form>
+
     <br>
 @endsection
