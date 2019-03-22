@@ -107,5 +107,9 @@ Route::get('/admin', function () {
     return view('backoffice.dashboard');
 })->name('bo_dashboard');
 
+Route::get('/admin/commandes', 'BackofficeOrdersController@index')
+    ->name('bo_orders_list');
 
+Route::get('/admin/commandes/{orderId}', 'BackofficeOrdersController@show')
+    ->name('bo_order_details');
 

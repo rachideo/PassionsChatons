@@ -25,13 +25,15 @@ class BackofficeController extends Controller {
     {
         $request->validate([
             'nom'=> 'required',
-            'prix'=> 'required|numeric',
+            'prix'=> 'required|integer|min:0',
             'photo'=> array(
                 'required',
                 'regex:/\.(jpg|jpeg|png|gif)$/',
             ),
             'description'=> 'required'
         ]);
+
+        $name = $request->get('nom');
 
         $product = new Product;
         $product->name = $request->get('nom');
@@ -40,7 +42,10 @@ class BackofficeController extends Controller {
         $product->description = $request->get('description');
         $product->save();
 
-        return redirect('admin/liste-produits')->with('status', 'Le produit a bien été ajouté');
+        session()->push('name[]', $request->get('nom'));
+        session()->push('add_time', date('H:i:s d-m-Y '));
+
+        return redirect('admin/liste-produits')->with('status', 'Le produit a bien été ajouté')->with(['name'=> $name]);
     }
 
 
@@ -61,7 +66,7 @@ class BackofficeController extends Controller {
 //        dd($request);
         $request->validate([
             'nom'=> 'required',
-            'prix'=> 'required|numeric',
+            'prix'=> 'required|integer|min:0',
             'photo'=> array(
                 'required',
                 'regex:/\.(jpg|jpeg|png|gif)$/',
@@ -118,13 +123,13 @@ class BackofficeController extends Controller {
                 $message = "Les produits ont bien été supprimés.";
             }
 
-            return redirect()->route('bo.products.list')->with('status', $message);
+            return redirect()->route('bo_products_list')->with('status', $message);
 
         } else {
             $product = $request->input('id');
             \App\Product::destroy($product);
 
-            return redirect()->route('bo.products.list')->with('status', 'Le produit a bien été supprimé');
+            return redirect()->route('bo_products_list')->with('status', 'Le produit a bien été supprimé');
         }
 
     }
