@@ -9,7 +9,7 @@
             {{ session('status') }}
         </div>
     @endif
-    
+
     <div class="dropdown">
         <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Trier par

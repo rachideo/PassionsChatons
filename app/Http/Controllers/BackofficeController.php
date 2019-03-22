@@ -34,7 +34,7 @@ class BackofficeController extends Controller {
 
         $request->validate([
             'nom'=> 'required',
-            'prix'=> 'required|numeric',
+            'prix'=> 'required|integer|min:0',
             'photo'=> array(
                 'required',
                 'regex:/\.(jpg|jpeg|png|gif)$/',
@@ -74,7 +74,7 @@ class BackofficeController extends Controller {
     {
         $request->validate([
             'nom'=> 'required',
-            'prix'=> 'required|numeric',
+            'prix'=> 'required|integer|min:0',
             'photo'=> array(
                 'required',
                 'regex:/\.(jpg|jpeg|png|gif)$/',
