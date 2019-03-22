@@ -11,6 +11,10 @@
                 <a class="nav-link" href="{{ route('product_list') }}">Cat-alogue</a>
             </li>
             <li class="nav-item">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('product_list_pups') }}">Dog-alogue</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="{{ route('basket_index') }}">Mon panier</a>
             </li>
             <li class="nav-item">

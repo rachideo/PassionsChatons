@@ -39,7 +39,8 @@ class BackofficeController extends Controller {
                 'required',
                 'regex:/\.(jpg|jpeg|png|gif)$/',
             ),
-            'description'=> 'required'
+            'description'=> 'required',
+            'category_id'=>'required'
         ]);
 
         $name = $request->get('nom');
@@ -49,6 +50,7 @@ class BackofficeController extends Controller {
         $product->price = $request->get('prix');
         $product->image = '/images/'.$request->get('photo');
         $product->description = $request->get('description');
+        $product->category_id = $request->get('category_id');
         $product->save();
 
         session()->push('name[]', $request->get('nom'));

@@ -43,6 +43,10 @@
             <label for="description">Description :</label>
             <input type="text" class="form-control" name ="description" value="{{$articleDetails->description}}">
         </div>
+        <div class="form-group">
+            <label for="category_id">Category id ( 1= Chaton, 2 = Chiot) :</label>
+            <input type="text" class="form-control" name ="description" value="{{$articleDetails->category_id}}">
+        </div>
 
         <button type="submit" class="btn btn-secondary"  value="Update" >MODIFIER</button>
     </form>
