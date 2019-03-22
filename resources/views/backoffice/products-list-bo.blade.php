@@ -9,15 +9,7 @@
             {{ session('status') }}
         </div>
     @endif
-
-    @if (null!==session()->get('name'))
-        @foreach (session()->get('name[]') as $key => $name)
-            <div class="alert alert-info" role="alert">
-            Le produit {{$name}} a été ajouté.
-            </div>
-            @endforeach
-    @endif
-
+    
     <div class="dropdown">
         <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Trier par

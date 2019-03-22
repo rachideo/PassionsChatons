@@ -62,7 +62,6 @@ class BackofficeController extends Controller {
     {
         $chaton = \App\Product::where('name',$product)->first();
 
-
         if (isset($chaton)) {
             return view('backoffice.edit-product-details-bo')->with('articleDetails', $chaton);
         } else {
