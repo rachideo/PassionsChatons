@@ -33,12 +33,12 @@
         @csrf
 
         @foreach ($tableau as $key => $chaton)
-            <div class="row align-items-center article my-3 p-3 justify-content-md-center">
+            <div class="row align-items-center article my-1 justify-content-md-center">
                 <div class="col-md-2">
-                    <a href="{{ route('bo_product_details',$chaton->name)}}"><img class="mx-auto mx-md-0 rounded-circle" src="{{ asset($chaton->image) }}" alt="Photo" ></a>
+                    <a href="{{ route('bo_product_details',$chaton->name)}}"><img class="w-50 mx-auto mx-md-0 rounded-circle" src="{{ asset($chaton->image) }}" alt="Photo" ></a>
                 </div>
                 <div class="col-md-3 m-4">
-                    <a href="{{ route('bo_product_details',$chaton->name)}}"><h2 class="text-center">{{ $chaton->name }}</h2></a>
+                    <a href="{{ route('bo_product_details',$chaton->name)}}"><h3 class="text-center">{{ $chaton->name }}</h3></a>
                 </div>
                 <div class="case_prix col-md-2 p-2">
                     <p class="text-center prix">{{ $chaton->price / 100 }} €</p>
