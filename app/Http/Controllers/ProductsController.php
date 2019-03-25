@@ -50,6 +50,9 @@ public function indexpup(Request $request)
     } elseif ($data == 'price') {
         $sorted = $chatons->sortBy('price');
         $sorted->values()->all();
+    } elseif ($data == 'category_id') {
+        $sorted = $chatons->sortBy('category_id');
+        $sorted->values()->all();
     } else {
         $sorted = $chatons;
     }

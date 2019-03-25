@@ -34,9 +34,12 @@
     </div>
         <div class="form-group">
             <label for="category_id">Category id ( 1= Chaton, 2 = Chiot) :</label>
-            <input type="text" class="form-control" name="category_id"/>
+            <select class="form-control" id="category_id" name="category_id">
+                <option>1</option>
+                <option>2</option>
+            </select>
         </div>
-    <button type="submit" class="btn btn-primary">AJOUTER</button>
+        <button type="submit" class="btn btn-primary">AJOUTER</button>
     </form>
 
 @endsection

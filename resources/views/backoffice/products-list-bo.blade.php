@@ -36,6 +36,7 @@
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <a class="dropdown-item" href="{{ route('bo_products_list','sort=price')}}">prix</a>
             <a class="dropdown-item" href="{{ route('bo_products_list','sort=name')}}">nom</a>
+            <a class="dropdown-item" href="{{ route('bo_products_list','sort=category_id')}}">category</a>
         </div>
     </div>
 
