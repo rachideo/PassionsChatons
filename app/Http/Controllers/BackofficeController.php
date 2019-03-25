@@ -185,4 +185,18 @@ class BackofficeController extends Controller {
         return view('backoffice.products-list-bo')->with('tableau', $sorted);
     }
 
+
+    public function dashboard() // LISTE DES PRODUITS AVEC FONCTION DE TRI
+    {
+
+        $cancel = \App\Cancel::all();
+
+        return view('backoffice.dashboard')->with('cancels', $cancel);
+    }
+
+
+
+
+
+
 }
