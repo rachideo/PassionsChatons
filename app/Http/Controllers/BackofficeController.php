@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 use App\Product;
+use App\Cancel;
 use Illuminate\Support\Facades\DB;
 
 
@@ -79,13 +80,27 @@ class BackofficeController extends Controller {
             'time' => date('H:i:s d-m-Y '),
             'product_info' => DB::table('products')->where('id', $request->get('id'))->get()
         ];
+
+//        dd(DB::table('products')->where('id', $request->get('id'))->get());
         session()->push('undo', $undo);
+
+        $cancel_edit = new Cancel;
+        $cancel_edit->product_id = $undo["product_info"][0]->id;
+        $cancel_edit->time = date('Y-m-d H:i:s');
+        $cancel_edit->type = $undo["type"];
+        $cancel_edit->old_name = $undo["product_info"][0]->name;
+        $cancel_edit->old_price = $undo["product_info"][0]->price;
+        $cancel_edit->old_image = $undo["product_info"][0]->image;
+        $cancel_edit->old_description = $undo["product_info"][0]->description;
+        $cancel_edit->save();
 
         $product = Product::find( $request->input('id'));
         $product->name = $request->input('nom');
         $product->price = $request->input('prix');
         $product->image = $request->input('photo');
         $product->description = $request->input('description');
+
+        session()->push('modified_product', $product);
 
         $product->save();
 
@@ -100,6 +115,8 @@ class BackofficeController extends Controller {
         $newProduct->price =  session()->get('undo.0.product_info.0')->price;
         $newProduct->image =  session()->get('undo.0.product_info.0')->image;
         $newProduct->description =  session()->get('undo.0.product_info.0')->description;
+
+        session()->push('old_product', $newProduct);
 
         $newProduct->save();
 
