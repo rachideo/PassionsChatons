@@ -34,9 +34,10 @@
     </div>
         <div class="form-group">
             <label for="category_id">Category id ( 1= Chaton, 2 = Chiot) :</label>
-            <select class="form-control" id="category_id" name="category_id">
-                <option>1</option>
-                <option>2</option>
+            <select class="form-control" id="category_id" name="category_name">
+                @foreach ($categories as $category)
+                    <option>{{$category->name}}</option>
+                @endforeach
             </select>
         </div>
         <button type="submit" class="btn btn-primary">AJOUTER</button>
