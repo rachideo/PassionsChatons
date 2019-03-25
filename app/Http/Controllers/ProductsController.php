@@ -23,7 +23,7 @@ class ProductsController extends Controller {
     {
 
         $data = $request->input('sort');
-        $chatons = \App\Product::all();
+        $chatons = \App\Product::all()->where('category_id','=', '1');
         if ($data == 'name') {
             $sorted = $chatons->sortBy('name');
             $sorted->values()->all();
@@ -36,5 +36,28 @@ class ProductsController extends Controller {
 
         return view('products-list')->with('tableau', $sorted);
     }
+
+
+
+public function indexpup(Request $request)
+{
+
+    $data = $request->input('sort');
+    $chatons = \App\Product::all()->where('category_id','=', '2');
+    if ($data == 'name') {
+        $sorted = $chatons->sortBy('name');
+        $sorted->values()->all();
+    } elseif ($data == 'price') {
+        $sorted = $chatons->sortBy('price');
+        $sorted->values()->all();
+    } elseif ($data == 'category_id') {
+        $sorted = $chatons->sortBy('category_id');
+        $sorted->values()->all();
+    } else {
+        $sorted = $chatons;
+    }
+
+    return view('products-list-pups')->with('tableau', $sorted);
+}
 
 }
