@@ -20,12 +20,36 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('contact') }}">Contact</a>
             </li>
+            @auth
+                <li class="nav-item">
+                    <a class="nav-link align-middle d-block" href="{{ route('my_account') }}">{{ Auth::user()->name }}</a>
+                </li>
+            @endauth
         </ul>
-        <div class="nav-item">
-            <a href="{{ route('sign_in') }}">
-                <img alt="S'identifier" src="{{ asset('images/icon-myAccount.png') }}" class="float-right w-25">
+        @guest
+            <ul class="navbar-nav mr-2">
+                <li class="nav-item">
+                    <a class="nav-link align-middle d-block" href="{{ route('login') }}">Identification</a>
+                </li>
+            </ul>
+            <a href="{{ route('login') }}">
+                <img alt="S'identifier" src="{{ asset('images/icon-myAccount.png') }}" class="">
             </a>
-        </div>
+        @else
+            <ul class="navbar-nav mr-2">
+                <li class="nav-item">
+                    <a class="nav-link align-middle d-block" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                        Déconnexion
+                        <img alt="Déconnexion" src="{{ asset('images/icon-myAccount.png') }}" class="ml-2 d-none d-md-inline-block ">
+                    </a>
+                </li>
+            </ul>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+        @endguest
     </div>
 </nav>
 
