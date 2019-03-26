@@ -39,7 +39,7 @@ class ProductsController extends Controller {
 
 
 
-public function indexpup(Request $request)
+public function indexpup(Request $request) // POUR LES PUPPIES
 {
 
     $data = $request->input('sort');

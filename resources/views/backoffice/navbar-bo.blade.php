@@ -19,6 +19,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('bo_orders_list', 'sort=date') }}">Commandes</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('bo_users_list')}}">Utilisateurs</a>
+            </li>
         </ul>
         <div class="nav-item">
             <a href="#">
