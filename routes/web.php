@@ -107,9 +107,8 @@ Route::get('/admin/produit-details/{product}', 'BackofficeController@index')
 Route::get('/admin/liste-produits/', 'BackofficeController@list')
     ->name('bo_products_list');
 
-Route::get('/admin', function () {
-    return view('backoffice.dashboard');
-})->name('bo_dashboard');
+Route::get('/admin', 'BackofficeController@dashboard')
+    ->name('bo_dashboard');
 
 Route::get('/admin/commandes', 'BackofficeOrdersController@index')
     ->name('bo_orders_list');
