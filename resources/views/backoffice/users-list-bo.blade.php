@@ -40,7 +40,7 @@
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->created_at }}</td>
                         <td>@if($user->is_admin == 0)✘@else()✔@endif</td>
-                        <td>go</td>
+                        <td>✐</td>
                     </tr>
                 @endforeach
             </tbody>
