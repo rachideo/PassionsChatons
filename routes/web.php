@@ -116,6 +116,8 @@ Route::get('/admin/commandes', 'BackofficeOrdersController@index')
 Route::get('/admin/commandes/{orderId}', 'BackofficeOrdersController@show')
     ->name('bo_order_details');
 
+Route::get('/admin/users/', 'BackofficeUsersController@index')
+    ->name('bo_users_list');
 
 Auth::routes();
 
