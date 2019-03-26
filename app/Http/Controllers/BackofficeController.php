@@ -185,4 +185,12 @@ class BackofficeController extends Controller {
         return view('backoffice.products-list-bo')->with('tableau', $sorted);
     }
 
+    public function dashboard(Request $request) // DASHBOARD
+    {
+
+        $lastmodifications = \App\Cancel::all();
+
+        return view('backoffice.dashboard')->with('lastmodifications', $lastmodifications);
+    }
+
 }
