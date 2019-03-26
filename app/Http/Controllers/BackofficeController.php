@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Cancel;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 
 class BackofficeController extends Controller {
@@ -20,6 +21,12 @@ class BackofficeController extends Controller {
      * @return array
      * @return mixed
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+
+    }
 
 
     public function store(Request $request) // AJOUT DE NOUVEAU PRODUIT
@@ -189,15 +196,6 @@ class BackofficeController extends Controller {
     }
 
 
-    public function dashboard(Request $request) // DASHBOARD
-    {
-
-        $lastmodifications = \App\Cancel::all();
-
-        return view('backoffice.dashboard')->with('lastmodifications', $lastmodifications);
-    }
-
-
     public function create(){
         $categories = \App\Category::all();
         return view ('backoffice.add-product-bo', ['categories'=>$categories]);
@@ -206,13 +204,9 @@ class BackofficeController extends Controller {
 
     public function dashboard() // LISTE DES PRODUITS AVEC FONCTION DE TRI
     {
+            $cancel = \App\Cancel::all();
 
-        $cancel = \App\Cancel::all();
-
-        return view('backoffice.dashboard')->with('cancels', $cancel);
+            return view('backoffice.dashboard')->with('cancels', $cancel);
     }
-    
-
-
 }
 
