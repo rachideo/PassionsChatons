@@ -116,3 +116,7 @@ Route::get('/admin/commandes', 'BackofficeOrdersController@index')
 Route::get('/admin/commandes/{orderId}', 'BackofficeOrdersController@show')
     ->name('bo_order_details');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

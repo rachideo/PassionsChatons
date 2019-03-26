@@ -21,6 +21,10 @@ class BackofficeController extends Controller {
      * @return mixed
      */
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function store(Request $request) // AJOUT DE NOUVEAU PRODUIT
     {
