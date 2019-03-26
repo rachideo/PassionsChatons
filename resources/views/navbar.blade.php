@@ -29,16 +29,16 @@
         @guest
             <ul class="navbar-nav mr-2">
                 <li class="nav-item">
-                    <a class="nav-link align-middle d-block" href="{{ route('login') }}">Identification</a>
+                    <a class="nav-link align-middle d-block" href="{{ route('sign_in') }}">Identification</a>
                 </li>
             </ul>
-            <a href="{{ route('login') }}">
+            <a href="{{ route('sign_in') }}">
                 <img alt="S'identifier" src="{{ asset('images/icon-myAccount.png') }}" class="">
             </a>
         @else
             <ul class="navbar-nav mr-2">
                 <li class="nav-item">
-                    <a class="nav-link align-middle d-block" href="{{ route('logout') }}"
+                    <a class="nav-link align-middle d-block p-0" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
                         Déconnexion
