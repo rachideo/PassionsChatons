@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
     public function show(Request $request)
     {
-        if (session('basket')) {
+        if (session('basket')&&Auth::check()) {
 
             /* Création nouvelle commande dans la table orders */
 
@@ -34,6 +35,8 @@ class OrderController extends Controller
             session()->put('order', session('basket'));
             session()->put('orderTotal', session('totalPrice'));
             session()->forget('basket');
+        }else {
+            return view('sign-in');
         }
 
         return view('confirm-order')->with('orderContent', session('order'));

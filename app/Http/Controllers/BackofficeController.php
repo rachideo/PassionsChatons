@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Cancel;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
 
 
 class BackofficeController extends Controller {
@@ -25,9 +24,7 @@ class BackofficeController extends Controller {
     public function __construct()
     {
         $this->middleware('auth');
-
     }
-
 
     public function store(Request $request) // AJOUT DE NOUVEAU PRODUIT
     {
@@ -204,9 +201,13 @@ class BackofficeController extends Controller {
 
     public function dashboard() // LISTE DES PRODUITS AVEC FONCTION DE TRI
     {
-            $cancel = \App\Cancel::all();
 
-            return view('backoffice.dashboard')->with('cancels', $cancel);
+        $cancel = \App\Cancel::all();
+
+        return view('backoffice.dashboard')->with('cancels', $cancel);
     }
+
+
+
 }
 
