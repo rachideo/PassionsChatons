@@ -202,7 +202,8 @@ class BackofficeController extends Controller {
 
         return view('backoffice.dashboard')->with('cancels', $cancel);
     }
-    
+
+
 
 }
 
