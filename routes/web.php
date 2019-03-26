@@ -86,9 +86,8 @@ Route::get('/contact', function () {
 /*  ______BACKOFFICE_____  */
 
 
-Route::get('/admin/ajout-produit', function () {
-    return view ('backoffice.add-product-bo');
-})->name('add_product');
+Route::get('/admin/ajout-produit', 'BackofficeController@create')
+    ->name('add_product');
 
 Route::post('/admin/liste-produits/', 'BackofficeController@store')
     ->name('store_product');

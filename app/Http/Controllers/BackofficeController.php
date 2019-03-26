@@ -32,7 +32,7 @@ class BackofficeController extends Controller {
                 'regex:/\.(jpg|jpeg|png|gif)$/',
             ),
             'description'=> 'required',
-            'category_id'=>'required'
+            'category_name'=>'required'
         ]);
 
         $name = $request->get('nom');
@@ -42,7 +42,9 @@ class BackofficeController extends Controller {
         $product->price = $request->get('prix');
         $product->image = '/images/'.$request->get('photo');
         $product->description = $request->get('description');
-        $product->category_id = $request->get('category_id');
+
+        $category = \App\Category::where('name', $request->get('category_name'))->first();
+        $product->category_id = $category->id;
         $product->save();
 
         session()->push('name[]', $request->get('nom'));
@@ -157,9 +159,10 @@ class BackofficeController extends Controller {
     public function index($product) // PAGE DETAIL PRODUIT AVEC FONCTION EDITION ET SUPPRESSION
     {
         $chaton = \App\Product::where('name',$product)->first();
+        $categories = \App\Category::all();
 
         if (isset($chaton)) {
-            return view('backoffice.product-details-bo')->with('articleDetails', $chaton);
+            return view('backoffice.product-details-bo')->with('articleDetails', $chaton)->with('categories', $categories);
 
         } else {
             return back();
@@ -185,6 +188,7 @@ class BackofficeController extends Controller {
         return view('backoffice.products-list-bo')->with('tableau', $sorted);
     }
 
+
     public function dashboard(Request $request) // DASHBOARD
     {
 
@@ -193,4 +197,22 @@ class BackofficeController extends Controller {
         return view('backoffice.dashboard')->with('lastmodifications', $lastmodifications);
     }
 
+
+    public function create(){
+        $categories = \App\Category::all();
+        return view ('backoffice.add-product-bo', ['categories'=>$categories]);
+    }
+
+
+    public function dashboard() // LISTE DES PRODUITS AVEC FONCTION DE TRI
+    {
+
+        $cancel = \App\Cancel::all();
+
+        return view('backoffice.dashboard')->with('cancels', $cancel);
+    }
+    
+
+
 }
+
