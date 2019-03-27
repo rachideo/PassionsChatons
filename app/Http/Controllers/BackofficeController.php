@@ -23,8 +23,10 @@ class BackofficeController extends Controller {
 
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('is_admin');
     }
+
+
 
     public function store(Request $request) // AJOUT DE NOUVEAU PRODUIT
     {
@@ -206,7 +208,6 @@ class BackofficeController extends Controller {
 
         return view('backoffice.dashboard')->with('cancels', $cancel);
     }
-
 
 
 }

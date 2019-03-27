@@ -14,7 +14,7 @@ class BackofficeOrdersController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('is_admin');
     }
 
     public function index(Request $request)
@@ -119,8 +119,11 @@ class BackofficeOrdersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $order = $request->input('id');
+        \App\Order::destroy($order);
+
+        return redirect()->route('bo_orders_list')->with('status', 'La commande a bien été supprimé');
     }
 }

@@ -86,17 +86,24 @@ Route::get('/contact', function () {
 /*  ______BACKOFFICE_____  */
 
 
+Route::get('/admin', 'BackofficeController@dashboard')
+    ->name('bo_dashboard');
+
+
 Route::get('/admin/ajout-produit', 'BackofficeController@create')
     ->name('add_product');
 
+
 Route::post('/admin/liste-produits/', 'BackofficeController@store')
     ->name('store_product');
+
 
 Route::put('/admin/liste-produits/', 'BackofficeController@update')
     ->name('update_product');
 
 Route::put('/admin/liste-produit/annulation', 'BackofficeController@cancel')
     ->name('cancel_edit');
+
 
 Route::delete('/admin/liste-produits/', 'BackofficeController@destroy')
     ->name('delete_product');
@@ -107,8 +114,6 @@ Route::get('/admin/produit-details/{product}', 'BackofficeController@index')
 Route::get('/admin/liste-produits/', 'BackofficeController@list')
     ->name('bo_products_list');
 
-Route::get('/admin', 'BackofficeController@dashboard')
-    ->name('bo_dashboard');
 
 Route::get('/admin/commandes', 'BackofficeOrdersController@index')
     ->name('bo_orders_list');
@@ -116,9 +121,16 @@ Route::get('/admin/commandes', 'BackofficeOrdersController@index')
 Route::get('/admin/commandes/{orderId}', 'BackofficeOrdersController@show')
     ->name('bo_order_details');
 
+Route::delete('/admin/commandes', 'BackofficeOrdersController@destroy')
+    ->name('delete_order');
+
 Route::get('/admin/users/', 'BackofficeUsersController@index')
     ->name('bo_users_list');
 
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')
+    ->name('home');
+
+
