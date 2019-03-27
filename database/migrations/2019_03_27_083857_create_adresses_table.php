@@ -21,6 +21,8 @@ class CreateAdressesTable extends Migration
         Schema::table('addresses', function (Blueprint $table) {
             $table->dropColumn('address_fact');
             $table->dropColumn('address_livr');
+            $table->dropForeign(['order_id']);
+            $table->dropColumn('order_id');
 
             $table->unsignedInteger('streetNumber');
             $table->char('streetName', 100);
