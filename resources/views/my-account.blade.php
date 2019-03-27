@@ -24,6 +24,8 @@
                     <p> Order quantity: {{ $order->quantity }}</p>
                 @endforeach
 
+                @dump($quantity)
+
             </div>
         </div>
     </div>
