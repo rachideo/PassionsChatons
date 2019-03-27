@@ -15,9 +15,13 @@ class IsAdmin
      */
     public function handle($request, Closure $next)
     {
-        if(auth()->user()->isAdmin()) {
+        if(auth()->guest()) {
+            return redirect('/')->with('status','Vous n\'avez pas accès au Dashboard.');
+        }
+        else if(auth()->user()->is_admin === 1) {
             return $next($request);
         }
+
         return redirect('/')->with('status','Vous n\'avez pas accès au Dashboard.');
     }
 }
