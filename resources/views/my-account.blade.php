@@ -19,24 +19,21 @@
                 <h3>Infos sur vos commandes</h3> <br>
 
                 @foreach ($orders as $order)
-                    <p> Order id: {{ $order->id }}</p>
-                    <p> Order user id: {{ $order->user_id }}</p>
-                    <p> Order quantity: {{ $order->quantity }}</p>
+                    <h4>Commande n°{{ $order->id }}</h4><br>
+                    @foreach($order->products as $product)
+                        <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" src="{{ $product->image}}" alt="Card image cap">
+                            <div class="card-body">
+                                <p> Product name: {{ $product->name}}</p>
+                                <p> Quantity: {{ $product->pivot->quantity }}</p>
+                            </div>
+                        </div> <br>
+                    @endforeach
                 @endforeach
-
-                @dump($quantity)
 
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
-{{--{{var_dump($users)}}--}}
 
 
 @endsection
