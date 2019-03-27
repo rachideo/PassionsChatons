@@ -21,14 +21,7 @@ Route::put('/panier', 'BasketController@update')
 Route::delete('/panier', 'BasketController@destroy')
     ->name('basket_destroy');
 
-
 /*  _____PRODUITS_____  */
-
-//Route::get('/liste-byName', 'ProductsController@listByName')
-//    ->name('product_list_byName');
-//
-//Route::get('/liste-byPrice', 'ProductsController@listByPrice')
-//    ->name('product_list_byPrice');
 
 Route::get('fiche-produit/{product}', 'ProductsController@show')
     ->name('product_detail');
@@ -39,8 +32,6 @@ Route::get('/liste-produits', 'ProductsController@index')
 Route::get('/liste-chiots', 'ProductsController@indexpup')
     ->name('product_list_pups');
 
-
-
 /*  _____ORDER_____  */
 
 Route::get('/order', 'OrderController@show')
@@ -48,26 +39,18 @@ Route::get('/order', 'OrderController@show')
 
 /*  _____CONNEXION_____  */
 
-//Route::get('/connexion', function () {
-//    return view('sign-in');
-//})->name('sign_in');
-
 Route::get('/connexion/creer-compte', function () {
     return view('sign-up');
 })->name('sign_up');
-
 
 /*  _____COMPTE_____  */
 
 Route::get('/mon-compte', 'UsersController@show')
     ->name('my_account');
 
-
 Route::get('/identification', function () {
     return view('sign-in');
 })->name('sign_in');
-
-
 
 /*  ______CONTACT_____  */
 
@@ -85,25 +68,20 @@ Route::get('/contact', function () {
 
 /*  ______BACKOFFICE_____  */
 
-
 Route::get('/admin', 'BackofficeController@dashboard')
     ->name('bo_dashboard');
-
 
 Route::get('/admin/ajout-produit', 'BackofficeController@create')
     ->name('add_product');
 
-
 Route::post('/admin/liste-produits/', 'BackofficeController@store')
     ->name('store_product');
-
 
 Route::put('/admin/liste-produits/', 'BackofficeController@update')
     ->name('update_product');
 
 Route::put('/admin/liste-produit/annulation', 'BackofficeController@cancel')
     ->name('cancel_edit');
-
 
 Route::delete('/admin/liste-produits/', 'BackofficeController@destroy')
     ->name('delete_product');
@@ -113,7 +91,6 @@ Route::get('/admin/produit-details/{product}', 'BackofficeController@index')
 
 Route::get('/admin/liste-produits/', 'BackofficeController@list')
     ->name('bo_products_list');
-
 
 Route::get('/admin/commandes', 'BackofficeOrdersController@index')
     ->name('bo_orders_list');
