@@ -23,10 +23,18 @@
                 <a class="nav-link" href="{{ route('bo_users_list')}}">Utilisateurs</a>
             </li>
         </ul>
-        <div class="nav-item">
-            <a href="#">
-                <img alt="S'identifier" src="{{ asset('images/icon-myAccount.png') }}" class="float-right w-25">
-            </a>
-        </div>
+        <ul class="navbar-nav mr-2">
+            <li class="nav-item">
+                <a class="nav-link align-middle d-block p-0" href="{{ route('logout') }}"
+                   onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                    Déconnexion
+                    <img alt="Déconnexion" src="{{ asset('images/icon-myAccount.png') }}" class="ml-2 d-none d-md-inline-block ">
+                </a>
+            </li>
+        </ul>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
     </div>
 </nav>

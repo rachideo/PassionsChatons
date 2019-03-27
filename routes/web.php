@@ -126,6 +126,9 @@ Route::get('/admin/commandes/{orderId}', 'BackofficeOrdersController@show')
     ->name('bo_order_details')
     ->middleware('is_admin');
 
+Route::delete('/admin/commandes', 'BackofficeOrdersController@destroy')
+    ->name('delete_order');
+
 Route::get('/admin/users/', 'BackofficeUsersController@index')
     ->name('bo_users_list')
     ->middleware('is_admin');

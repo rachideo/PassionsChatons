@@ -14,7 +14,9 @@ class OrderController extends Controller
             /* Création nouvelle commande dans la table orders */
 
             $newOrder = new \App\Order;
-            $newOrder->user_id = 1; // Attaché à l'utilisateur 1 : à changer par l'id user
+            $newOrder->user_id = auth()->id();
+            $newOrder->address_id_billing = auth()->user()->address_id_billing;
+            $newOrder->address_id_delivery = auth()->user()->address_id_delivery;
             $newOrder->save();
 
 
@@ -23,7 +25,7 @@ class OrderController extends Controller
             $currentOrder = \App\Order::all()->sortByDesc('created_at')->first();
 
             foreach (session('basket') as $productAttributes) {
-                $currentOrder->products()->attach(1, // Attaché à l'utilisateur 1 : à changer par l'id user
+                $currentOrder->products()->attach(auth()->id(),
                     [
                         'order_id' => $currentOrder->id,
                         'product_id' => $productAttributes['id'],
