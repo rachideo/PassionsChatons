@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class BackofficeUsersController extends Controller
 {
@@ -12,7 +13,7 @@ class BackofficeUsersController extends Controller
         $this->middleware('is_admin');
     }
 
-    public function index(Request $request)
+    public function list(Request $request) // LISTE DES USERS
     {
         $data = $request->input('sort');
         $users = \App\User::all();
@@ -30,42 +31,61 @@ class BackofficeUsersController extends Controller
     }
 
 
-
-    public function show()
+    public function index($user) // PAGE DETAIL UTILISATEUR
     {
-        //
+        $utilisateur = \App\User::where('id',$user)->first();
+//        dd($utilisateur);
+//        $address = \App\Address::where('')
+
+        if (isset($utilisateur)) {
+            return view('backoffice.user-details-bo')->with('user', $utilisateur);
+//            ->with('address', $address);
+        } else {
+            return back();
+        }
     }
 
 
-
-    public function create()
+    public function update(Request $request) // MODIFICATION DES USERS
     {
-        //
+        $request->validate([
+            'name'=> 'required',
+            'email'=> 'required|email',
+        ]);
+
+        $user = User::find( $request->input('id'));
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->is_admin = $request->input('is_admin');
+
+        $user->save();
+
+        return redirect('admin/utilisateurs')->with('status', 'L\'utilisateur a bien été modifié');
     }
 
 
-    public function store(Request $request)
-    {
-        //
-    }
-
-
-    public function edit($id)
-    {
-        //
-    }
-
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-
-    public function destroy($id)
-    {
-        //
-    }
+//    public function create()
+//    {
+//        //
+//    }
+//
+//
+//    public function store(Request $request)
+//    {
+//        //
+//    }
+//
+//
+//    public function edit($id)
+//    {
+//        //
+//    }
+//
+//
+//    public function destroy($id)
+//    {
+//        //
+//    }
 
 
 }

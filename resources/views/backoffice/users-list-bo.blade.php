@@ -40,7 +40,7 @@
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->created_at }}</td>
                         <td>@if($user->is_admin == 0)✘@else()✔@endif</td>
-                        <td>✐</td>
+                        <td><a href="{{ route('bo_user_details',$user->id)}}">✐</a></td>
                     </tr>
                 @endforeach
             </tbody>
