@@ -17,9 +17,12 @@
             </div>
             <div class="col-md p-4 m-4">
                 <h3>Infos sur vos commandes</h3> <br>
-                    <p> Order id: </p>
-                    <p> Order date:</p>
-                    <p> Order status</p>
+
+                @foreach ($orders as $order)
+                    <p> Order id: {{ $order->id }}</p>
+                    <p> Order user id: {{ $order->user_id }}</p>
+                    <p> Order quantity: {{ $order->quantity }}</p>
+                @endforeach
 
             </div>
         </div>
