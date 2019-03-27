@@ -48,6 +48,9 @@ Route::get('/connexion/creer-compte', function () {
 Route::get('/mon-compte', 'UsersController@show')
     ->name('my_account');
 
+Route::get('/mon-compte/{userId}/mes-adresses', 'AddressesController@edit')
+    ->name('user_addresses');
+
 Route::get('/identification', function () {
     return view('sign-in');
 })->name('sign_in');
