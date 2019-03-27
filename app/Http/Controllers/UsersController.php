@@ -22,7 +22,7 @@ class UsersController extends Controller
             echo $order->pivot->quantity;
         }
          {
-//        return view('my-account')->with('users', $users)->with('orders', $orders);
+        return view('my-account')->with('users', $users)->with('orders', $orders);
         }
     //
     }

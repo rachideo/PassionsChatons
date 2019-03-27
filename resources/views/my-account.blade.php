@@ -23,8 +23,7 @@
                     <p> Order user id: {{ $order->user_id }}</p>
                     <p> Order quantity: {{ $order->quantity }}</p>
                 @endforeach
-
-                @dump($quantity)
+                
 
             </div>
         </div>
