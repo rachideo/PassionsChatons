@@ -86,39 +86,53 @@ Route::get('/contact', function () {
 /*  ______BACKOFFICE_____  */
 
 
+Route::get('/admin', 'BackofficeController@dashboard')
+    ->name('bo_dashboard')
+    ->middleware('is_admin');
+
 Route::get('/admin/ajout-produit', 'BackofficeController@create')
-    ->name('add_product');
+    ->name('add_product')
+    ->middleware('is_admin');
 
 Route::post('/admin/liste-produits/', 'BackofficeController@store')
-    ->name('store_product');
+    ->name('store_product')
+    ->middleware('is_admin');
 
 Route::put('/admin/liste-produits/', 'BackofficeController@update')
-    ->name('update_product');
+    ->name('update_product')
+    ->middleware('is_admin');
 
 Route::put('/admin/liste-produit/annulation', 'BackofficeController@cancel')
-    ->name('cancel_edit');
+    ->name('cancel_edit')
+    ->middleware('is_admin');
 
 Route::delete('/admin/liste-produits/', 'BackofficeController@destroy')
-    ->name('delete_product');
+    ->name('delete_product')
+    ->middleware('is_admin');
 
 Route::get('/admin/produit-details/{product}', 'BackofficeController@index')
-    ->name('bo_product_details');
+    ->name('bo_product_details')
+    ->middleware('is_admin');
 
 Route::get('/admin/liste-produits/', 'BackofficeController@list')
-    ->name('bo_products_list');
-
-Route::get('/admin', 'BackofficeController@dashboard')
-    ->name('bo_dashboard');
+    ->name('bo_products_list')
+    ->middleware('is_admin');
 
 Route::get('/admin/commandes', 'BackofficeOrdersController@index')
-    ->name('bo_orders_list');
+    ->name('bo_orders_list')
+    ->middleware('is_admin');
 
 Route::get('/admin/commandes/{orderId}', 'BackofficeOrdersController@show')
-    ->name('bo_order_details');
+    ->name('bo_order_details')
+    ->middleware('is_admin');
 
 Route::get('/admin/users/', 'BackofficeUsersController@index')
-    ->name('bo_users_list');
+    ->name('bo_users_list')
+    ->middleware('is_admin');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')
+    ->name('home');
+
+
