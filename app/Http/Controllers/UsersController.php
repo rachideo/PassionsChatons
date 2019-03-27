@@ -16,17 +16,19 @@ class UsersController extends Controller
     $users = \App\User::all()->where('id','===', Auth::id());;
     $orders = \App\Order::all()->where('user_id','===', Auth::id());;
 
-        $product = \App\Product::find(1);
-
-        foreach ($product->orders as $order) {
-            echo $order->pivot->quantity;
+        foreach ($orders as $order) {
+            foreach($order->products as $product){
+                $order->id;
+                $product->pivot->quantity;
+                $product->name;
+                $product->image;
+            }
         }
          {
-        return view('my-account')->with('users', $users)->with('orders', $orders);
+        return view('my-account')->with('users', $users)->with('orders', $orders)->with('product', $product);
         }
     //
     }
-
 
 
 }
