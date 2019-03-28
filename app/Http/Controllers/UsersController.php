@@ -16,6 +16,8 @@ class UsersController extends Controller
         $user = Auth::user();
         $orders = \App\Order::all()->where('user_id','===', Auth::id());;
 
+
+
         foreach ($orders as $order) {
             foreach($order->products as $product){
                 $order->id;
