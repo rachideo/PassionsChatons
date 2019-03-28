@@ -13,7 +13,9 @@ class UsersController extends Controller
     }
 
     public function show() {
-    $users = \App\User::all()->where('id','===', Auth::id());;
+//    $users = \App\User::all()->where('id','===', Auth::id());;
+        $user = Auth::user();
+        dd($user->orders);
     $orders = \App\Order::all()->where('user_id','===', Auth::id());;
 
         foreach ($orders as $order) {

@@ -74,6 +74,7 @@ class BackofficeOrdersController extends Controller
     public function show($orderId)
     {
         $order = \App\Order::where('id', $orderId)->first();
+//        $order = Order::find($orderId);
         $orderLines = [];
 
         $order->total = 0;
