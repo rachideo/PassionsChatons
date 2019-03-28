@@ -64,6 +64,16 @@ class BackofficeUsersController extends Controller
     }
 
 
+    public function destroy(Request $request) // SUPPRESSION DE PRODUIT
+    {
+            $user = $request->input('id');
+            \App\User::destroy($user);
+
+            return redirect()->route('bo_users_list')->with('status', 'L\'utilisateur bien été supprimé');
+    }
+
+
+
 //    public function create()
 //    {
 //        //
@@ -77,12 +87,6 @@ class BackofficeUsersController extends Controller
 //
 //
 //    public function edit($id)
-//    {
-//        //
-//    }
-//
-//
-//    public function destroy($id)
 //    {
 //        //
 //    }

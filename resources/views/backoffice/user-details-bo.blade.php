@@ -35,31 +35,30 @@
             <br>
         </div>
         <div class="form-group">
-            <p>Droit administrateur :</p>
-            <div>
-                <input type="radio" id="oui" name="is_admin" value="1" @if ($user->is_admin === 1) checked @endif>
-                <label for="oui">Oui</label>
-            </div>
-            <div>
-                <input type="radio" id="non" name="is_admin" value="0" @if ($user->is_admin === 0) checked @endif>
-                <label for="non">Non</label>
+            Droit administrateur :
+            <div class="form-check form-check-inline">
+                <div>
+                    <input class="form-check-input" type="radio" id="oui" name="is_admin" value="1" @if ($user->is_admin === 1) checked @endif>
+                    <label class="form-check-label" for="oui">Oui </label>
+                </div>
+                <div>
+                    <input class="form-check-input" type="radio" id="non" name="is_admin" value="0" @if ($user->is_admin === 0) checked @endif>
+                    <label class="form-check-label" for="non">Non</label>
+                </div>
             </div>
         </div>
-
-        {{$user->}}
-
-
         <button type="submit" class="btn btn-secondary"  value="Update" >MODIFIER</button>
     </form>
 
-    {{--<form method="POST" action="{{ route('delete_product') }}">--}}
-        {{--@csrf--}}
-        {{--@method('DELETE')--}}
-        {{--<div class="form-group">--}}
-            {{--<input type="hidden" class="form-control" name="id" value="{{ $articleDetails->id }}"/>--}}
-        {{--</div>--}}
-        {{--<button type="submit" class="btn btn-danger">SUPPRIMER</button>--}}
-    {{--</form>--}}
+
+    <form method="POST" action="{{ route('bo_delete_user') }}">
+        @csrf
+        @method('DELETE')
+        <div class="form-group">
+            <input type="hidden" class="form-control" name="id" value="{{ $user->id }}"/>
+        </div>
+        <button type="submit" class="btn btn-danger">SUPPRIMER</button>
+    </form>
 
     <br>
 

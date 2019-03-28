@@ -125,6 +125,9 @@ Route::get('/admin/utilisateur-details/{user}', 'BackofficeUsersController@index
 Route::put('/admin/utilisateurs', 'BackofficeUsersController@update')
     ->name('bo_update_user');
 
+Route::delete('/admin/utilisateurs', 'BackofficeUsersController@destroy')
+    ->name('bo_delete_user');
+
 // Auth :
 
 Auth::routes();
