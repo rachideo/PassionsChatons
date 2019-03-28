@@ -13,10 +13,10 @@ class UsersController extends Controller
     }
 
     public function show() {
+//    $users = \App\User::all()->where('id','===', Auth::id());;
         $user = Auth::user();
-        $orders = \App\Order::all()->where('user_id','===', Auth::id());;
-
-
+//        dd($user);
+    $orders = \App\Order::all()->where('user_id','===', Auth::id());;
 
         foreach ($orders as $order) {
             foreach($order->products as $product){
