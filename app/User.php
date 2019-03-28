@@ -39,10 +39,10 @@ class User extends Authenticatable
     ];
 
     public function addressBilling() {
-        return $this->hasOne('App\Address', 'address_id_billing');
+        return $this->belongsTo('App\Address', 'address_id_billing');
     }
 
     public function addressDelivery() {
-        return $this->hasOne('App\Address', 'address_id_delivery');
+        return $this->belongsTo('App\Address', 'address_id_delivery');
     }
 }
