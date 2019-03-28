@@ -12,20 +12,18 @@ class UsersController extends Controller
         $this->middleware('auth');
     }
 
-    public function show() {
+    public function show()
+    {
         $user = Auth::user();
-        $orders = \App\Order::all()->where('user_id','===', Auth::id());;
+        $orders = \App\Order::all()->where('user_id', '===', Auth::id());;
 
-         {
+
+        {
 //
-        return view('my-account', [
-            'user' => $user,
-            'orders' => $orders,
-        ]);
-
-         }
-    //
+            return view('my-account', [
+                'user' => $user,
+                'orders' => $orders,
+            ]);
+        }
     }
-
-
 }

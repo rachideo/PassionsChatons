@@ -41,9 +41,9 @@ class OrderController extends Controller
 
             session()->forget('basket');
         }
-        dd(auth()->user());
 
-        $order = auth()->user()->order->sortByDesc('created_at')->first();
+        $order = auth()->user()->orders->sortByDesc('created_at')->first();
+
         return view('confirm-order')->with('order', $order);
     }
 }
