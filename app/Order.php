@@ -10,4 +10,6 @@ class Order extends Model
         return $this->belongsToMany('App\Product', 'product_order')
             ->withPivot('quantity');
     }
+
 }
+
