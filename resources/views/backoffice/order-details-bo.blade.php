@@ -4,7 +4,27 @@
 
 @section('content')
 
-    <h3 class="my-4 d-block text-center">n° {{ $order->id }}</h3>
+    <h3 class="d-block text-center mb-3">commande n° {{ $order->id }}</h3>
+    <h4 class="d-block text-center ">{{ $order->user->name }}</h4>
+    <p class="d-block text-center"><a href="mailto:{{ $order->user->email }}">&#9993; {{ $order->user->email }}</a></p>
+
+    <div class="row">
+        <div class="col">
+            <h4>Adresse de facturation :</h4>
+            <p>
+                {{ $order->addressBilling->streetNumber }} {{ $order->addressBilling->streetName }}<br>
+                {{ $order->addressBilling->zipcode }} {{ $order->addressBilling->city }}, {{ $order->addressBilling->country }}
+            </p>
+        </div>
+        <div class="col text-right">
+            <h4>Adresse de livraison :</h4>
+            <p>
+                {{ $order->addressDelivery->streetNumber }} {{ $order->addressDelivery->streetName }}<br>
+                {{ $order->addressDelivery->zipcode }} {{ $order->addressDelivery->city }}, {{ $order->addressDelivery->country }}
+            </p>
+        </div>
+    </div>
+
 
     <h3 class="my-4">Contenu :</h3>
 
@@ -34,13 +54,13 @@
         </div>
     </div>
 
-    <form method="POST" action="{{ route('delete_order') }}">
+    <form method="POST" action="{{ route('delete_order') }}" class="d-inline-block">
         @csrf
         @method('DELETE')
         <div class="form-group">
             <input type="hidden" class="form-control" name="id" value="{{ $order->id }}"/>
         </div>
-        <button type="submit" class="btn btn-danger">SUPPRIMER</button>
+        <button type="submit" class="btn btn-danger">SUPPRIMER LA COMMANDE</button>
     </form>
 
 @endsection

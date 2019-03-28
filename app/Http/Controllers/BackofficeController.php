@@ -27,7 +27,6 @@ class BackofficeController extends Controller {
     }
 
 
-
     public function store(Request $request) // AJOUT DE NOUVEAU PRODUIT
     {
         $request->validate([
@@ -57,18 +56,6 @@ class BackofficeController extends Controller {
         session()->push('add_time', date('H:i:s d-m-Y '));
 
         return redirect('admin/liste-produits')->with('status', 'Le produit a bien été ajouté')->with(['name'=> $name]);
-    }
-
-
-    public function show($product) // FORMULAIRE DE MODIFICATION DE PRODUIT
-    {
-        $chaton = \App\Product::where('name',$product)->first();
-
-        if (isset($chaton)) {
-            return view('backoffice.edit-product-details-bo')->with('articleDetails', $chaton);
-        } else {
-            return back();
-        }
     }
 
 
