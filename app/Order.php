@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use \Carbon\Carbon;
 
 class Order extends Model
 {
@@ -29,5 +30,9 @@ class Order extends Model
             $totalPrice += $orderLine->pivot->quantity * $orderLine->price;
         }
         return $totalPrice / 100;
+    }
+
+    public function date() {
+        return Carbon::parse($this->created_at)->format('d/m/Y');
     }
 }
