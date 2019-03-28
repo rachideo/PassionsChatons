@@ -21,6 +21,7 @@ Route::put('/panier', 'BasketController@update')
 Route::delete('/panier', 'BasketController@destroy')
     ->name('basket_destroy');
 
+
 /*  _____PRODUITS_____  */
 
 Route::get('fiche-produit/{product}', 'ProductsController@show')
@@ -32,16 +33,19 @@ Route::get('/liste-produits', 'ProductsController@index')
 Route::get('/liste-chiots', 'ProductsController@indexpup')
     ->name('product_list_pups');
 
+
 /*  _____ORDER_____  */
 
 Route::get('/order', 'OrderController@show')
     ->name('order');
+
 
 /*  _____CONNEXION_____  */
 
 Route::get('/connexion/creer-compte', function () {
     return view('sign-up');
 })->name('sign_up');
+
 
 /*  _____COMPTE_____  */
 
@@ -54,6 +58,7 @@ Route::get('/mon-compte/{userId}/mes-adresses', 'AddressesController@edit')
 Route::get('/identification', function () {
     return view('sign-in');
 })->name('sign_in');
+
 
 /*  ______CONTACT_____  */
 
@@ -71,8 +76,11 @@ Route::get('/contact', function () {
 
 /*  ______BACKOFFICE_____  */
 
+
 Route::get('/admin', 'BackofficeController@dashboard')
     ->name('bo_dashboard');
+
+// Produits :
 
 Route::get('/admin/ajout-produit', 'BackofficeController@create')
     ->name('add_product');
@@ -95,6 +103,8 @@ Route::get('/admin/produit-details/{product}', 'BackofficeController@index')
 Route::get('/admin/liste-produits/', 'BackofficeController@list')
     ->name('bo_products_list');
 
+// Commandes :
+
 Route::get('/admin/commandes', 'BackofficeOrdersController@index')
     ->name('bo_orders_list');
 
@@ -104,9 +114,18 @@ Route::get('/admin/commandes/{orderId}', 'BackofficeOrdersController@show')
 Route::delete('/admin/commandes', 'BackofficeOrdersController@destroy')
     ->name('delete_order');
 
-Route::get('/admin/users/', 'BackofficeUsersController@index')
+// Utilisateurs :
+
+Route::get('/admin/utilisateurs/', 'BackofficeUsersController@list')
     ->name('bo_users_list');
 
+Route::get('/admin/utilisateur-details/{user}', 'BackofficeUsersController@index')
+    ->name('bo_user_details');
+
+Route::put('/admin/utilisateurs', 'BackofficeUsersController@update')
+    ->name('bo_update_user');
+
+// Auth :
 
 Auth::routes();
 
