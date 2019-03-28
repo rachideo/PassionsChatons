@@ -34,11 +34,11 @@ Route::get('/liste-chiots', 'ProductsController@indexpup')
     ->name('product_list_pups');
 
 
-
 /*  _____ORDER_____  */
 
 Route::get('/order', 'OrderController@show')
     ->name('order');
+
 
 /*  _____CONNEXION_____  */
 
@@ -52,11 +52,12 @@ Route::get('/connexion/creer-compte', function () {
 Route::get('/mon-compte', 'UsersController@show')
     ->name('my_account');
 
+Route::get('/mon-compte/{userId}/mes-adresses', 'AddressesController@edit')
+    ->name('user_addresses');
 
 Route::get('/identification', function () {
     return view('sign-in');
 })->name('sign_in');
-
 
 
 /*  ______CONTACT_____  */
