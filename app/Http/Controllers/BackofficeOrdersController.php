@@ -22,15 +22,6 @@ class BackofficeOrdersController extends Controller
         $sorting = $request->input('sort');
         $orders = \App\Order::all();
 
-        foreach($orders as $order) {
-            $orderTotal = 0;
-            foreach($order->products as $orderLine) {
-                $orderTotal += ($orderLine->pivot->quantity * $orderLine->price);
-            }
-
-            $order->orderTotal = $orderTotal;
-        }
-
         if ($sorting == 'date') {
             $sortedOrders = $orders->sortByDesc('created_at');
             $sortedOrders->values()->all();
@@ -74,18 +65,6 @@ class BackofficeOrdersController extends Controller
     public function show($orderId)
     {
         $order = \App\Order::where('id', $orderId)->first();
-        $orderLines = [];
-
-        $order->total = 0;
-
-        foreach($order->products as $orderLine) {
-            $orderLine->quantity = $orderLine->pivot->quantity;
-            $orderLine->lineTotal = $orderLine->quantity * $orderLine->price;
-            $order->total += $orderLine->lineTotal;
-            array_push($orderLines, $orderLine);
-        }
-
-        $order->orderLines = $orderLines;
 
         return view('backoffice.order-details-bo')->with('order', $order);
     }
