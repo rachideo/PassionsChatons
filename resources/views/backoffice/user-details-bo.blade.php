@@ -26,17 +26,24 @@
         </div>
         <br>
         <div class="form-group">
-            <label for="name">Nom :</label>
-            <input type="text" class="form-control" name ="name" value="{{$user->name}}">
+            <label>Nom :</label>
+            <input type="text" class="form-control" name ="nom" value="{{$user->name}}">
         </div>
         <div class="form-group">
-            <label for="email">E-mail :</label>
+            <label>E-mail :</label>
             <input type="email" class="form-control" name ="email" value="{{$user->email}}">
             <br>
         </div>
         <div class="form-group">
-            <label for="is_admin">Droit administrateur :</label><br>
-            <input type="checkbox" name="is_admin" value="1" @if ($user->is_admin === 1) checked @endif >
+            <p>Droit administrateur :</p>
+            <div>
+                <input type="radio" id="oui" name="is_admin" value="1" @if ($user->is_admin === 1) checked @endif>
+                <label for="oui">Oui</label>
+            </div>
+            <div>
+                <input type="radio" id="non" name="is_admin" value="0" @if ($user->is_admin === 0) checked @endif>
+                <label for="non">Non</label>
+            </div>
         </div>
 
         <button type="submit" class="btn btn-secondary"  value="Update" >MODIFIER</button>

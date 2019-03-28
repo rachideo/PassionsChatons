@@ -49,12 +49,12 @@ class BackofficeUsersController extends Controller
     public function update(Request $request) // MODIFICATION DES USERS
     {
         $request->validate([
-            'name'=> 'required',
+            'nom'=> 'required',
             'email'=> 'required|email',
         ]);
 
         $user = User::find( $request->input('id'));
-        $user->name = $request->input('name');
+        $user->name = $request->input('nom');
         $user->email = $request->input('email');
         $user->is_admin = $request->input('is_admin');
 
