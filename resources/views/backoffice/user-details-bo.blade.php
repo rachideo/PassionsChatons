@@ -46,6 +46,9 @@
             </div>
         </div>
 
+        {{$user->}}
+
+
         <button type="submit" class="btn btn-secondary"  value="Update" >MODIFIER</button>
     </form>
 
