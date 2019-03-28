@@ -28,7 +28,7 @@
 
     <h3 class="my-4">Contenu :</h3>
 
-    @foreach($order->orderLines as $orderLine)
+    @foreach($order->products as $orderLine)
 
         <hr class="my-1">
 
@@ -37,10 +37,10 @@
                 <h4>{{ $orderLine->name }}</h4>
             </div>
             <div class="col col-md-3">
-                <p class="text-center m-0">{{ $orderLine->quantity }} x {{ $orderLine->price / 100 }} €</p>
+                <p class="text-center m-0">{{ $orderLine->pivot->quantity }} x {{ $orderLine->price / 100 }} €</p>
             </div>
             <div class="col col-md-3">
-                <p class="text-right m-0">{{ $orderLine->quantity * $orderLine->price / 100 }} €</p>
+                <p class="text-right m-0">{{ $orderLine->pivot->quantity * $orderLine->price / 100 }} €</p>
             </div>
         </div>
 
@@ -50,7 +50,7 @@
 
     <div class="row align-items-center justify-content-center p-3">
         <div class="col col-md-9">
-            <p class="text-right m-0">Total de la commande : {{ $order->total / 100 }} €</p>
+            <p class="text-right m-0">Total de la commande : {{ $order->totalPrice() }} €</p>
         </div>
     </div>
 

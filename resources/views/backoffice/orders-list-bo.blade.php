@@ -31,7 +31,7 @@
                     <h4 class="m-0 ">{{ $order->created_at }}</h4>
                 </div>
                 <div class="case_prix col-md-2 p-1">
-                    <p class="text-center prix">{{ $order->orderTotal / 100 }} €</p>
+                    <p class="text-center prix">{{ $order->totalPrice() }} €</p>
                 </div>
             </div>
         </a>

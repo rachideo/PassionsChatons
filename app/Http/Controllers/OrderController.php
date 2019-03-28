@@ -7,9 +7,14 @@ use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function show(Request $request)
     {
-        if (session('basket')&&Auth::check()) {
+        if (session('basket')) {
 
             /* Création nouvelle commande dans la table orders */
 
@@ -34,13 +39,11 @@ class OrderController extends Controller
                 );
             }
 
-            session()->put('order', session('basket'));
-            session()->put('orderTotal', session('totalPrice'));
             session()->forget('basket');
-        }else {
-            return view('sign-in');
         }
+        dd(auth()->user());
 
-        return view('confirm-order')->with('orderContent', session('order'));
+        $order = auth()->user()->order->sortByDesc('created_at')->first();
+        return view('confirm-order')->with('order', $order);
     }
 }
