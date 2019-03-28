@@ -37,4 +37,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function addressBilling() {
+        return $this->hasOne('App\Address', 'address_id_billing');
+    }
+
+    public function addressDelivery() {
+        return $this->hasOne('App\Address', 'address_id_delivery');
+    }
 }

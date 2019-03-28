@@ -6,6 +6,9 @@
 
     <h3 class="my-4 d-block text-center">n° {{ $order->id }}</h3>
 
+    <p>Client : {{ $order->user_id }}</p>
+    @dump($order->all())
+
     <h3 class="my-4">Contenu :</h3>
 
     @foreach($order->orderLines as $orderLine)
