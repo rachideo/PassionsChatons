@@ -66,6 +66,20 @@ class BackofficeOrdersController extends Controller
     {
         $order = \App\Order::where('id', $orderId)->first();
 
+//        $order = Order::find($orderId);
+        $orderLines = [];
+
+        $order->total = 0;
+
+        foreach($order->products as $orderLine) {
+            $orderLine->quantity = $orderLine->pivot->quantity;
+            $orderLine->lineTotal = $orderLine->quantity * $orderLine->price;
+            $order->total += $orderLine->lineTotal;
+            array_push($orderLines, $orderLine);
+        }
+
+        $order->orderLines = $orderLines;
+
         return view('backoffice.order-details-bo')->with('order', $order);
     }
 
