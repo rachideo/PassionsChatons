@@ -24,12 +24,6 @@ Route::delete('/panier', 'BasketController@destroy')
 
 /*  _____PRODUITS_____  */
 
-//Route::get('/liste-byName', 'ProductsController@listByName')
-//    ->name('product_list_byName');
-//
-//Route::get('/liste-byPrice', 'ProductsController@listByPrice')
-//    ->name('product_list_byPrice');
-
 Route::get('fiche-produit/{product}', 'ProductsController@show')
     ->name('product_detail');
 
@@ -47,10 +41,6 @@ Route::get('/order', 'OrderController@show')
     ->name('order');
 
 /*  _____CONNEXION_____  */
-
-//Route::get('/connexion', function () {
-//    return view('sign-in');
-//})->name('sign_in');
 
 Route::get('/connexion/creer-compte', function () {
     return view('sign-up');
@@ -134,6 +124,7 @@ Route::get('/admin/utilisateur-details/{user}', 'BackofficeUsersController@index
 Route::put('/admin/utilisateurs', 'BackofficeUsersController@update')
     ->name('bo_update_user');
 
+// Auth :
 
 Auth::routes();
 
