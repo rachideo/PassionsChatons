@@ -76,7 +76,7 @@ class ProductsTableSeeder extends Seeder
         ]);
 
         DB::table('products')->insert([
-            'name' => 'Fred',
+            'name' => 'Fluff',
             'price' => 18000,
             'image' => 'images/puppies/GS.jpg',
             'description' => 'The cutest puppy.',
