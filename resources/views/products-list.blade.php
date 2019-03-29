@@ -4,6 +4,12 @@
 
 @section('content')
 
+    @if (session('status'))
+        <div class="alert alert-danger">
+            {{ session('status') }}
+        </div>
+    @endif
+
 <form action="{{ route('basket_store') }}" method="POST">
     @csrf
 

@@ -37,7 +37,8 @@ Route::get('/liste-chiots', 'ProductsController@indexpup')
 /*  _____ORDER_____  */
 
 Route::get('/order', 'OrderController@show')
-    ->name('order');
+    ->name('order')
+    ->middleware('hasOrder');
 
 
 /*  _____CONNEXION_____  */
