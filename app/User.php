@@ -52,4 +52,12 @@ class User extends Authenticatable
         return $this->belongsTo('App\Address', 'address_id_delivery');
 
     }
+
+    public function hasAddresses() {
+        if(isset($this->addressBilling) || isset($this->addressDelivery)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
