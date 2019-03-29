@@ -147,3 +147,9 @@ h3 {
 .footer-laravel {
     background-color: dimgrey;
 }
+
+.list-group-item.active {
+    background-color: lightgray;
+    border-color: lightgray;
+    color: black;
+}
