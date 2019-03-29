@@ -138,6 +138,11 @@ Route::put('/admin/utilisateurs-details/{user}', 'BackofficeUsersController@crea
 Route::delete('/admin/utilisateurs', 'BackofficeUsersController@destroy')
     ->name('bo_delete_user');
 
+// Adresse :
+
+Route::delete('/admin/utilisateurs-details/{user}', 'AddressesController@destroy')
+    ->name('bo_delete_adr');
+
 // Auth :
 
 Auth::routes();

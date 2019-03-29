@@ -4,6 +4,12 @@
 
 @section('content')
 
+    @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+    @endif
+
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -57,7 +63,7 @@
             </div>
         </fieldset>
 
-        @if (isset($user->addressBilling))
+        @if ($user->addressBilling!== null && $user->addressDelivery !=null)
 
             <fieldset class="form-group">
                 <div class="row">
@@ -130,7 +136,7 @@
                 </fieldset>
 
             <br>
-        @elseif($user->addressBilling == null)
+        @elseif($user->addressBilling == null || $user->addressDelivery == null)
             <p>L'utilisateur ne possède pas d'adresse. Voulez vous en créer une ? </p>
             <div class="form-group col-md-3">
                 <button type="button" class="btn btn-outline-primary"><a href="{{ route('bo_user_add_address',$user->id)}}">Ajouter une adresse à l'utilisateur</a></button>
@@ -151,6 +157,26 @@
         <button type="submit" class="btn btn-danger">SUPPRIMER L'UTILISATEUR</button>
     </form>
 
+
+    @if (!$user->addressBilling == null && !$user->addressDelivery == null)
+        <form method="POST" action="{{ route('bo_delete_adr',$user->id) }}">
+            @csrf
+            @method('DELETE')
+            <div class="form-group">
+                <input type="hidden" class="form-control" name="whichAdr" value="aD"/>
+            </div>
+            <button type="submit" class="btn btn-danger">SUPPRIMER L'ADRESSE DE LIVRAISON</button>
+        </form>
+
+        <form method="POST" action="{{ route('bo_delete_adr',$user->id) }}">
+            @csrf
+            @method('DELETE')
+            <div class="form-group">
+                <input type="hidden" class="form-control" name="which" value="aB"/>
+            </div>
+            <button type="submit" class="btn btn-danger">SUPPRIMER L'ADRESSE DE FACTURATION</button>
+        </form>
+    @endif
     <br>
 
 @endsection
