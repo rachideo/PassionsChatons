@@ -69,7 +69,7 @@ class BackofficeOrdersController extends Controller
 //        $order = Order::find($orderId);
         $orderLines = [];
 
-        $order->total = 0;
+//        $order->total = 0;
 
         foreach($order->products as $orderLine) {
             $orderLine->quantity = $orderLine->pivot->quantity;
@@ -118,5 +118,13 @@ class BackofficeOrdersController extends Controller
         \App\Order::destroy($order);
 
         return redirect()->route('bo_orders_list')->with('status', 'La commande a bien été supprimé');
+    }
+
+    public function destroySingle($orderId, Request $request)
+    {
+        $order = \App\Order::find($orderId);
+        $order->products()->detach($request->orderLineId);
+
+        return redirect()->route('bo_order_details', $orderId);
     }
 }

@@ -112,6 +112,9 @@ Route::get('/admin/commandes', 'BackofficeOrdersController@index')
 Route::get('/admin/commandes/{orderId}', 'BackofficeOrdersController@show')
     ->name('bo_order_details');
 
+Route::delete('/admin/commandes/{orderId}', 'BackofficeOrdersController@destroySingle')
+    ->name('delete-single-line');
+
 Route::delete('/admin/commandes', 'BackofficeOrdersController@destroy')
     ->name('delete_order');
 

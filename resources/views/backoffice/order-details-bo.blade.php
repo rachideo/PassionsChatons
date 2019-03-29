@@ -25,7 +25,6 @@
         </div>
     </div>
 
-
     <h3 class="my-4">Contenu :</h3>
 
     @foreach($order->products as $orderLine)
@@ -41,6 +40,14 @@
             </div>
             <div class="col col-md-3">
                 <p class="text-right m-0">{{ $orderLine->pivot->quantity * $orderLine->price / 100 }} €</p>
+            </div>
+            <div class="col col-md-1">
+                <form action="{{ route('delete-single-line', ['orderId' => $order->id]) }}" method="POST">
+                    @method('DELETE')
+                    @csrf
+                    <input type="hidden" name="orderLineId" value="{{ $orderLine->id }}">
+                    <input type="submit" class="form-control" value="&#x292B;">
+                </form>
             </div>
         </div>
 
