@@ -15,11 +15,9 @@ class UsersController extends Controller
     public function show()
     {
         $user = Auth::user();
-        $orders = \App\Order::all()->where('user_id','===', Auth::id());;
 
         return view('my-account', [
             'user' => $user,
-            'orders' => $orders,
         ]);
     }
 }
