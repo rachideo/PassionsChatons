@@ -15,10 +15,16 @@ class HasOrder
      */
     public function handle($request, Closure $next)
     {
-        if(!empty(auth()->user()->orders)) {
-            return $next($request);
+        $user = auth()->user();
+
+        if(!empty($user->orders)) {
+            if($user->hasAddresses()) {
+                return $next($request);
+            } else {
+                return redirect()->route('user_addresses', $user->id);
+            }
         } else {
-            return redirect('/liste-produits')->with('status','Vous n\'avez pas encore passé de commande chez nous');
+            return redirect()->route('product_list')->with('status','Vous n\'avez pas encore passé de commande chez nous');
         }
     }
 }

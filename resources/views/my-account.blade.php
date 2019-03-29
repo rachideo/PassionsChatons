@@ -27,7 +27,7 @@
             <div class="col-md p-4 m-4">
                 <h3>Infos sur vos commandes</h3>
 
-                @foreach ($orders as $order)
+                @foreach ($user->orders as $order)
                     <h4>Commande n°{{ $order->id }}</h4><br>
                     @foreach($order->products as $product)
                         <div class="card" style="width: 18rem;">
