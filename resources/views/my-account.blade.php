@@ -7,14 +7,25 @@
     <div class = "container">
         <div class="row">
             <div class="col-md p-4 m-4">
-                <h3>Infos sur votre compte</h3> <br>
-                    <p> User name: {{ $user->name }}</p>
-                    <p> User email: {{ $user->email }}</p>
-                    <p> User id: {{ $user->id }}</p>
-                <button type="submit" class="btn btn-primary">Editer</button>
+                <h3>Infos sur votre compte</h3>
+                <p> User name: {{ $user->name }}<br>
+                User email: {{ $user->email }}<br>
+                User id: {{ $user->id }}</p>
+                <h4>Adresse de facturation :</h4>
+                <p>
+                    {{ $user->addressBilling->streetNumber }} {{ $user->addressBilling->streetName }}<br>
+                    {{ $user->addressBilling->zipcode }} {{ $user->addressBilling->city }}, {{ $user->addressBilling->country }}
+                </p>
+                <h4>Adresse de livraison :</h4>
+                <p>
+                    {{ $user->addressDelivery->streetNumber }} {{ $user->addressDelivery->streetName }}<br>
+                    {{ $user->addressDelivery->zipcode }} {{ $user->addressDelivery->city }}, {{ $user->addressDelivery->country }}
+                </p>
+                <button type="submit" class="btn btn-primary" href="#">Editer</button>
             </div>
+
             <div class="col-md p-4 m-4">
-                <h3>Infos sur vos commandes</h3> <br>
+                <h3>Infos sur vos commandes</h3>
 
                 @foreach ($user->orders as $order)
                     <h4>Commande n°{{ $order->id }}</h4><br>
@@ -24,6 +35,7 @@
                             <div class="card-body">
                                 <p> Product name: {{ $product->name}}</p>
                                 <p> Quantity: {{ $product->pivot->quantity }}</p>
+                                <p> Order date: {{ $order->created_at }}</p>
                             </div>
                         </div> <br>
                     @endforeach
