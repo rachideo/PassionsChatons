@@ -61,7 +61,6 @@ class BackofficeController extends Controller {
 
     public function update(Request $request) // MODIFICATION DE PRODUIT
     {
-//        dd($request);
         $request->validate([
             'nom'=> 'required',
             'prix'=> 'required|integer|min:0',
@@ -78,7 +77,6 @@ class BackofficeController extends Controller {
             'product_info' => DB::table('products')->where('id', $request->get('id'))->get()
         ];
 
-//        dd(DB::table('products')->where('id', $request->get('id'))->get());
         session()->push('undo', $undo);
 
         $cancel_edit = new Cancel;
@@ -145,7 +143,6 @@ class BackofficeController extends Controller {
 
             return redirect()->route('bo_products_list')->with('status', 'Le produit a bien été supprimé');
         }
-
     }
 
 
@@ -182,18 +179,22 @@ class BackofficeController extends Controller {
     }
 
 
-    public function create(){
+    public function create()
+    {
         $categories = \App\Category::all();
         return view ('backoffice.add-product-bo', ['categories'=>$categories]);
     }
 
-
-    public function dashboard() // LISTE DES PRODUITS AVEC FONCTION DE TRI
+    public function dashboard()
     {
-
         $cancel = \App\Cancel::all();
+        $orders = \App\Order::all();
+        $lastOrders = $orders->slice(count($orders) - 3)->sortByDesc('created_at');
 
-        return view('backoffice.dashboard')->with('cancels', $cancel);
+        return view('backoffice.dashboard', [
+            'cancels' => $cancel,
+            'lastOrders' => $lastOrders
+        ]);
     }
 
 
