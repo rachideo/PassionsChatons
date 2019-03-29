@@ -129,7 +129,7 @@ Route::get('/admin/utilisateur-adresse/{user}', 'BackofficeUsersController@add')
 Route::put('/admin/utilisateurs', 'BackofficeUsersController@update')
     ->name('bo_update_user');
 
-Route::post('/admin/utilisateurs', 'BackofficeUsersController@createAddress')
+Route::put('/admin/utilisateurs-details/{user}', 'BackofficeUsersController@createAddress')
     ->name('bo_create_user_add');
 
 Route::delete('/admin/utilisateurs', 'BackofficeUsersController@destroy')

@@ -4,18 +4,8 @@
 
 @section('content')
 
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
 
-
-    <form  method="POST" action="{{ route('bo_create_user_add') }}">
+    <form  method="POST" action="{{ route('bo_create_user_add',$user->id) }}">
         @csrf
         @method('PUT')
 
@@ -25,6 +15,9 @@
             <div class="row">
                 <legend class="col-form-label col-sm-2 pt-0">Adresse facturation : </legend>
                 <div class="col-sm-10">
+                    <div class="form-group">
+                        <input type="hidden" class="form-control" name="id" value="{{$user->id}}"/>
+                    </div>
                     <div class="form-group">
                         <input type="hidden" class="form-control" name="aB_id" value=""/>
                     </div>
@@ -91,7 +84,7 @@
             </div>
         </fieldset>
 
-        <button type="submit" class="btn btn-secondary"  value="Update" >MODIFIER</button>
+        <button type="submit" class="btn btn-secondary"  value="Update" >ENREGISTRER</button>
     </form>
 
     <br>

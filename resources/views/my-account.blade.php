@@ -11,6 +11,7 @@
                 <p> User name: {{ $user->name }}<br>
                 User email: {{ $user->email }}<br>
                 User id: {{ $user->id }}</p>
+                @if ($user->hasAddresses())
                 <h4>Adresse de facturation :</h4>
                 <p>
                     {{ $user->addressBilling->streetNumber }} {{ $user->addressBilling->streetName }}<br>
@@ -21,6 +22,7 @@
                     {{ $user->addressDelivery->streetNumber }} {{ $user->addressDelivery->streetName }}<br>
                     {{ $user->addressDelivery->zipcode }} {{ $user->addressDelivery->city }}, {{ $user->addressDelivery->country }}
                 </p>
+                @endif
                 <button type="submit" class="btn btn-primary" href="#">Editer</button>
             </div>
 

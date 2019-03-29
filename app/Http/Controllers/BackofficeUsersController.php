@@ -35,12 +35,10 @@ class BackofficeUsersController extends Controller
     public function index($user) // PAGE DETAIL UTILISATEUR
     {
         $utilisateur = \App\User::where('id',$user)->first();
-//        dd($utilisateur);
-//        $address = \App\Address::where('')
 
         if (isset($utilisateur)) {
             return view('backoffice.user-details-bo')->with('user', $utilisateur);
-//            ->with('address', $address);
+
         } else {
             return back();
         }
@@ -106,14 +104,13 @@ class BackofficeUsersController extends Controller
     }
 
 
-    public function destroy(Request $request) // SUPPRESSION DE PRODUIT
+    public function destroy(Request $request) // SUPPRESSION D'UN UTILISATEUR
     {
             $user = $request->input('id');
             \App\User::destroy($user);
 
             return redirect()->route('bo_users_list')->with('status', 'L\'utilisateur bien été supprimé');
     }
-
 
 
     public function add($user) // AJOUTER UNE ADRESSE UTILISATEUR
@@ -128,7 +125,8 @@ class BackofficeUsersController extends Controller
         }
     }
 
-    public function createAddress(Request $request) // MODIFICATION DES USERS
+
+    public function createAddress(Request $request) //
     {
         $user = User::find( $request->input('id'));
 
@@ -139,7 +137,8 @@ class BackofficeUsersController extends Controller
         $addressB->city = $request->input('aB_city');
         $addressB->country = $request->input('aB_country');
         $addressB->save(); // Si l'adresse facture et livraison sont la même alors besoin que d'un seul save
-        $user->address_id_billing = Address::orderBy('id', 'desc')->first()->id;
+
+        $user->address_id_billing = $addressB->id;
         $user->save(); // L'utilisateur sauvegarde le nouvel id de son adress_id_billing
 
         $addressD = new Address;
@@ -149,23 +148,13 @@ class BackofficeUsersController extends Controller
         $addressD->city = $request->input('aD_city');
         $addressD->country = $request->input('aD_country');
         $addressD->save(); // Les adresses facture et livraison sont différents, il faut donc save une deuxieme fois pr l'autre adresse
-        $user->address_id_delivery = Address::orderBy('id', 'desc')->first()->id;
+
+        $user->address_id_delivery = $addressD->id;
         $user->save(); // L'utilisateur sauvegarde le nouvel id de son adress_id_delivery
 
         return redirect('admin/utilisateurs')->with('status', 'L\'utilisateur a bien été modifié');
-    }
 
-//
-//    public function store(Request $request)
-//    {
-//        //
-//    }
-//
-//
-//    public function edit($id)
-//    {
-//        //
-//    }
+    }
 
 
 }

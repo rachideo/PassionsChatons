@@ -16,6 +16,7 @@ class AddForeignKeyToUsersTable extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->unsignedInteger('address_id')->nullable();
             $table->foreign('address_id')->references('id')->on('addresses');
+
         });
     }
 

@@ -133,7 +133,7 @@
         @elseif($user->addressBilling == null)
             <p>L'utilisateur ne possède pas d'adresse. Voulez vous en créer une ? </p>
             <div class="form-group col-md-3">
-                <button type="button" class="btn btn-outline-primary"><a href="{{ route('bo_user_add_address',$user->id)}}" ">Ajouter une adresse à l'utilisateur</a></button>
+                <button type="button" class="btn btn-outline-primary"><a href="{{ route('bo_user_add_address',$user->id)}}">Ajouter une adresse à l'utilisateur</a></button>
             </div>
             <br>
         @endif
