@@ -20,7 +20,7 @@ class AddressesController extends Controller
             $addressToDelete = Address::find($user->address_id_delivery);
 
             Address::destroy($addressToDelete->id);
-//            $user->update(['address_id_delivery'=>null]);
+            $user->update(['address_id_delivery'=>null]);
 
 
 
@@ -31,7 +31,7 @@ class AddressesController extends Controller
             $addressToDelete = Address::find($user->address_id_billing);
 
             Address::destroy($addressToDelete->id);
-//            $user->update(['address_id_billing'=>null]);
+            $user->update(['address_id_billing'=>null]);
 
 
             return redirect()->route('bo_users_list')->with('status', 'L\'adresse  de facturation a bien été supprimé');
